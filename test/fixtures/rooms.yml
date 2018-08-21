@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  closed_at: false
+  playlist: one
+  admin_user_id: 1
+  description: MyString
+
+two:
+  name: MyString
+  closed_at: false
+  playlist: two
+  admin_user_id: 1
+  description: MyString

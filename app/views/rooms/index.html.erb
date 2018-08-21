@@ -1,0 +1,14 @@
+<h1>Rooms#index</h1>
+<%= link_to "SignOut" , destroy_user_session_path , method: :delete %>
+<div class="">
+    <%= link_to "PlaylistCreate",new_playlist_path %>
+    <%= link_to "RoomCreate", new_room_path %>
+</div>
+<ul>
+    <% @rooms.each do |room| %>
+        <%= link_to room.name, room_path(room) %>
+    <% end %>
+    <div id="room1" class="Room">
+        <h1>Room1</h1>
+    </div>
+</ul>

@@ -1,0 +1,19 @@
+<%= form_for @playlist do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.label :name, "プレイリスト名" %>
+      <%= f.text_field :name, :size=>"100",cols: "30", rows: "10",placeholder: "プレイリスト名を入力して下さい。" %>
+    </div>
+    <div class="field">
+      <%= f.label :description, "内容" %>
+      <%= f.text_area :description, :size=>"100",cols: "30", rows: "10",placeholder: "内容" %>
+    </div>
+    
+    <%= f.fields_for :movie_urls do |mf| %>
+      <%= render partial: "movie_url_form", locals: {mf: mf } %>
+    <% end %>
+    
+    <div class="button_wrap">
+      <input type="submit" value="保存する" class="button">
+    </div>
+<% end %>

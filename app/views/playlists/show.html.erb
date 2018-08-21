@@ -1,0 +1,5 @@
+<p>プレイリスト名： <%= @playlist.name %> </p>
+<p>説明： <%= @playlist.description %> </p>
+<% @playlist.movie_urls.each do |movie_url| %>
+    <p><%= movie_url.url %></p>
+<% end %>

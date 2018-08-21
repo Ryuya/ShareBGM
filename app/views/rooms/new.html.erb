@@ -1,0 +1,19 @@
+<%= form_for @room do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.label :name, "ルーム名" %>
+      <%= f.text_field :name, :size=>"100",cols: "30", rows: "10",placeholder: "プレイリスト名を入力して下さい。" %>
+    </div>
+    <div class="field">
+      <%= f.label :description, "内容" %>
+      <%= f.text_area :description, :size=>"100",cols: "30", rows: "10",placeholder: "内容" %>
+    </div>
+    
+    <!--<div class="field">
+      <%#= f.label :playlist, "内容" %>
+    </div>
+    -->
+    <div class="button_wrap">
+      <input type="submit" value="保存する" class="button">
+    </div>
+<% end %>
