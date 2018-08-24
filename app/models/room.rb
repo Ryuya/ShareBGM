@@ -1,3 +1,3 @@
 class Room < ApplicationRecord
-  belongs_to :playlist
+  belongs_to :playlist 
 end

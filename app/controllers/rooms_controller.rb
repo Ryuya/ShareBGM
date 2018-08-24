@@ -7,11 +7,14 @@ class RoomsController < ApplicationController
   
   def new 
     @room = Room.new
+    @playlist = Playlist.find_by(id: current_user.id)
+    
   end
   
   def create
     @room = Room.new(room_params)
-    
+    #外すと動く・・・
+    #@room.playlist = Playlist.find(params[:playlist_id])
     if @room.save
       flash[:success] = "ルームを作成しました"
       redirect_to rooms_path and return
@@ -22,13 +25,14 @@ class RoomsController < ApplicationController
   end
   
   def show
-    
+    @room = Room.find(params[:id])
   end
   
   def room_params
     params.require(:room).permit(
       :name,
-      :description
+      :description,
+      :playlist_id
       );
   end
 end
