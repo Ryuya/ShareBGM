@@ -4,6 +4,8 @@ class PlaylistsController < ApplicationController
   end
   
   def new
+    @have_playlists = Playlist.where(user_id: current_user.id)
+    @playlists = Playlist.all
     @playlist = Playlist.new
     3.times do
       @playlist.movie_urls.new

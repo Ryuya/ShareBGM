@@ -1,14 +1,19 @@
 <h1>Rooms#index</h1>
-<%= link_to "SignOut" , destroy_user_session_path , method: :delete %>
+<%= link_to "ログアウト" , destroy_user_session_path , method: :delete %>
 <div class="">
-    <%= link_to "PlaylistCreate",new_playlist_path %>
-    <%= link_to "RoomCreate", new_room_path %>
+    <%= link_to "Playlistを作る",new_playlist_path %>
+    <%= link_to "部屋を立てる", new_room_path %>
 </div>
-<ul>
-    <% @rooms.each do |room| %>
-        <%= link_to room.name, room_path(room) %>
-    <% end %>
-    <div id="room1" class="Room">
-        <h1>Room1</h1>
-    </div>
-</ul>
+<div class="room clearfix">
+    <ul>
+        <% @rooms.each_with_index do |room,i| %>
+            <li id="<%= room.id %>">
+                    <h5><%= link_to "Room" + i.to_s , room_path(room) %></h5>
+                    <%= link_to room.name, room_path(room) %>
+                    </br>
+                    
+                    <%= room.description %>
+            </li>
+        <% end %>
+    </ul>
+</div>

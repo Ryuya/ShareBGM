@@ -8,13 +8,13 @@ class RoomsController < ApplicationController
   def new 
     @room = Room.new
     @playlist = Playlist.find_by(id: current_user.id)
-    
+    @pulldown_playlists = Playlist.where(user_id: current_user.id);
   end
   
   def create
     @room = Room.new(room_params)
     #外すと動く・・・
-    #@room.playlist = Playlist.find(params[:playlist_id])
+    #@room.playlist = Playlist.find(params[:room][:playlist_id])
     if @room.save
       flash[:success] = "ルームを作成しました"
       redirect_to rooms_path and return

@@ -7,6 +7,6 @@ class Playlist < ApplicationRecord
     
     accepts_nested_attributes_for :movie_urls, reject_if: :all_blank
     
-    validates :name, presence: true,length: {maximum: 20}
-    validates :description,length: {maximum: 120}
+    validates :name, presence: true,length: {maximum: 35}
+    validates :description,length: {maximum: 350}
 end
