@@ -1,13 +1,16 @@
 <% ids = Array.new %>
 <% id = ""%>
 <% counter = 0%>
-<% @room.playlist.movie_urls.each do |movie_url| %>
- <!-- https://www.youtube.com/watch?v=GJI4Gv7NbmE&list=RDNum8ZWWmPhQ&index=6 v= & までがid-->
- <% id = movie_url.url %>
- <% id.slice!("https://www.youtube.com/watch?v=")%>
- <% id.sub!(/&.*/m, "")%>
- <% ids.push(id)%>
-<% end %>
+<ul class="all">
+  <% @room.playlist.movie_urls.each do |movie_url| %>
+   <!-- https://www.youtube.com/watch?v=GJI4Gv7NbmE&list=RDNum8ZWWmPhQ&index=6 v= & までがid-->
+   <% id = movie_url.url %>
+   <% id.slice!("https://www.youtube.com/watch?v=")%>
+   <% id.sub!(/&.*/m, "")%>
+   <li><%= id %></li>
+  <% end %>
+</ul>
+
 
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>

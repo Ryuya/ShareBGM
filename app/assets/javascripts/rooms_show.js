@@ -1,29 +1,32 @@
-$(document).on('ready',function(){
+$(document).on('turbolinks:load',function(){
   let controller = $('body').data('controller');
   let action = $('body').data('action');
+ 
+  
   console.log("controller:"+controller + ",action:"+action);
   //ids = <%= %>
   //show.html.erbにulを用意しておく。
-  let ids = ["A2k6ZO6B0A8","CurkP_8S0bI","XSkpuDseenY"];
-  let counter = 0;
   if(controller === "rooms" && action === "show"){
-      // 2. This code loads the IFrame Player API code asynchronously.
-    var tag = document.createElement('script');
-  
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
+    var ids = [];
+    $('.all').css('display','none');
+    $('.all li').each(function(index,elm) {
+        console.log($(elm).text());
+        ids.push($(elm).text());
+    });
+    
+    let counter = 0;
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
     var player;
-    $(window).on('load',function(){
-      //イディオム 短絡評価
-      onYouTubeIframeAPIReady && onYouTubeIframeAPIReady();
-    })
+    if (window.YT) {
+      window.onYouTubeIframeAPIReady && window.onYouTubeIframeAPIReady();
+      return;
+    }else{
+      $.getScript("https://www.youtube.com/iframe_api")
+    }
     
     
-    function onYouTubeIframeAPIReady() {
+    window.onYouTubeIframeAPIReady = function() {
       player = new YT.Player('player', {
         height: '360',
         width: '640',
