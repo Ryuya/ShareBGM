@@ -11,8 +11,8 @@
         width:200px;
         height:110px;
         list-style-type:none;
-        &:first-child{
-            margin-left:0px;
+        &:last-child:after{
+            clear:both;
         }
         &:nth-child(5) {
             margin-left:0px;
@@ -25,4 +25,37 @@
 	content: "";
 	clear: both;
 	display: block;
+}
+
+.cueItem{
+    border:solid 1px hotpink;
+    width:200px;
+    height:180px;
+    background-color:black;
+    float:left;
+}
+
+#playlist li {
+    display: block;
+    width: 148px;
+    height: 170px;
+    float: left;
+    margin: 0;
+    padding: 10px;
+    img{
+        width:100%;
+    }
+    a {
+        display:block;
+    }
+}
+
+
+
+.box{
+    overflow:hidden;
+}
+
+.playing {
+    border:solid 2px hotpink;
 }

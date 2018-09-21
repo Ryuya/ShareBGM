@@ -1,48 +1,45 @@
-$(document).on('turbolinks:load',function(){
+$(document).on('ready',function(){
   let controller = $('body').data('controller');
   let action = $('body').data('action');
- 
   
   console.log("controller:"+controller + ",action:"+action);
-  //ids = <%= %>
   //show.html.erbにulを用意しておく。
   if(controller === "rooms" && action === "show"){
-    var ids = [];
-    $('.all').css('display','none');
-    $('.all li').each(function(index,elm) {
-        console.log($(elm).text());
-        ids.push($(elm).text());
-    });
     
-    let counter = 0;
-    // 3. This function creates an <iframe> (and YouTube player)
-    //    after the API code downloads.
-    var player;
     if (window.YT) {
       window.onYouTubeIframeAPIReady && window.onYouTubeIframeAPIReady();
       return;
     }else{
       $.getScript("https://www.youtube.com/iframe_api")
     }
-    
-    
     window.onYouTubeIframeAPIReady = function() {
-      player = new YT.Player('player', {
+      $('#playlist li').each(function(index,elm) {
+        console.log($(elm).data('movie_id'));
+        gon.ids.push($(elm).data('movie_id'));
+      });
+      gon.currentId = 0;
+      gon.player = new YT.Player('player', {
         height: '360',
         width: '640',
-        videoId: ids[counter],
+        videoId: gon.ids[gon.currentId],
         events: {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
         }
       });
-  
+      $('#playlist li').each(function(index,elm) {
+        if(index == gon.currentId){
+          $(elm).addClass("playing");
+        }
+    });
     }
     
     // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
       event.target.playVideo();
     }
+    
+    
   
   
     // 5. The API calls this function when the player's state changes.
@@ -59,15 +56,20 @@ $(document).on('turbolinks:load',function(){
       //js.erb
       //データ属性を使う
       if (ytStatus == YT.PlayerState.ENDED) {
-          counter = counter + 1;
-          player.cueVideoById(ids[counter],0);
-          console.log(counter);
-          player.playVideo();
+          gon.currentId = gon.currentId + 1;
+          gon.player.cueVideoById(gon.ids[gon.currentId],0,"default");
+          $(".playing").removeClass("playing");
+          $("#playlist li").each(function(index,elm){
+            if(index == gon.currentId){
+              $(elm).addClass("playing");
+            }
+          });
+          gon.player.playVideo();
       }
-      
     }
+    
     function stopVideo() {
-      player.stopVideo();
+      gon.player.stopVideo();
     }
   }
 })

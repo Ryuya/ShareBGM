@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 gem 'jquery-rails'
+#youtube data api
+gem 'google-api-client', '<0.9'
+gem 'trollop', '~> 2.1'
+gem 'gon'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

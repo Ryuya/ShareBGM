@@ -1,22 +1,49 @@
-<% ids = Array.new %>
-<% id = ""%>
-<% counter = 0%>
-<ul class="all">
-  <% @room.playlist.movie_urls.each do |movie_url| %>
-   <!-- https://www.youtube.com/watch?v=GJI4Gv7NbmE&list=RDNum8ZWWmPhQ&index=6 v= & までがid-->
-   <% id = movie_url.url %>
-   <% id.slice!("https://www.youtube.com/watch?v=")%>
-   <% id.sub!(/&.*/m, "")%>
-   <li><%= id %></li>
-  <% end %>
-</ul>
+
+<div id="box">
+    <ul id="playlist">
+      <% @room.playlist.movie_urls.each do |movie_url| %>
+       <!-- https://www.youtube.com/watch?v=GJI4Gv7NbmE&list=RDNum8ZWWmPhQ&index=6 v= & までがid-->
+       <li data-movie_id="<%= movie_url.ytid %>"><a data-movie_id="<%= movie_url.ytid %>" href="#"><%= movie_url.title %><img src ="https://i.ytimg.com/vi/<%= movie_url.ytid %>/default.jpg" ></a></li>
+      <% end %>
+    </ul>
+</div>
+
+<script>
+   
+    $(document).on('click', '#playlist li', function(){
+        hogehoge(this);
+    });
+    
+    function hogehoge(id){
+        console.log(id);
+
+        $("#playlist li").each(function(index,elm){
+            $(elm).removeClass("playing");
+        });
+        
+        $("#playlist li").each(function(index,elm){
+            if(elm === id){
+              gon.currentId = index;
+              console.log("true");
+            }　else{
+              console.log("false");
+              console.log($(elm));
+              console.log(id);
+            }
+        });
+          
+        $("#playlist li").each(function(index,elm){
+            if(index == gon.currentId){
+              $(elm).addClass("playing");
+            }
+        });
+        gon.player.loadVideoById(gon.ids[gon.currentId],0,"default");
+    }
+</script>
+
 
 
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
 
-    <script>
-      
-    
-    </script>
 

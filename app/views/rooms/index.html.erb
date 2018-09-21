@@ -12,6 +12,8 @@
                     <%= link_to room.name, room_path(room) %>
                     </br>
                     <%= room.description %>
+                    <%= link_to "削除", room ,method: :delete ,data: { confirm: "You sure?" } %>
+
             </li>
         <% end %>
     </ul>
