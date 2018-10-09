@@ -27,13 +27,6 @@
 	display: block;
 }
 
-.cueItem{
-    border:solid 1px hotpink;
-    width:200px;
-    height:180px;
-    background-color:black;
-    float:left;
-}
 
 #playlist li {
     display: block;
@@ -42,20 +35,37 @@
     float: left;
     margin: 0;
     padding: 10px;
+    &:hover{
+        cursor:pointer;
+        background-color:#ccc;
+    }
     img{
         width:100%;
     }
-    a {
-        display:block;
-    }
+    
 }
 
+#player{
+    float:left;
+}
 
+#chat{
+    float:left;
+    border:solid 1px black;
+    width:500px;
+    height:359px;
+    box-sizing:boder-box;
+}
 
 .box{
     overflow:hidden;
+    
 }
 
 .playing {
     border:solid 2px hotpink;
+}
+
+.index-menu{
+    border:solid 1px black;
 }

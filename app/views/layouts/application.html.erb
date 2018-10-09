@@ -11,6 +11,7 @@
   <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
     <header>
       <%= link_to "top",root_path %>
+      <%= link_to "ログアウト" , destroy_user_session_path , method: :delete %>
     </header>
     <% flash.each do |type, message| %>
       <div class="alert alert-<%= type %>"><%= message %></div>

@@ -105,9 +105,6 @@ end
   end
   
   def show
-    gon.ids = [];
-    gon.player;
-    gon.currentId;
     @room = Room.find(params[:id])
   end
   
@@ -119,12 +116,11 @@ end
       );
   end
   
-    # 投稿を削除
+    # 部屋を削除
   def destroy
     @room = Room.find(params[:id])
     @room.destroy
     flash[:success] = "#{@room.name}を削除しました"
-
     redirect_to rooms_path
   end
   

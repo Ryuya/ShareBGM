@@ -33,6 +33,7 @@ gem 'jquery-rails'
 gem 'google-api-client', '<0.9'
 gem 'trollop', '~> 2.1'
 gem 'gon'
+gem 'bootstrap-sass'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
