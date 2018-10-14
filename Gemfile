@@ -34,6 +34,7 @@ gem 'google-api-client', '<0.9'
 gem 'trollop', '~> 2.1'
 gem 'gon'
 gem 'bootstrap-sass'
+gem 'nested_form_fields'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

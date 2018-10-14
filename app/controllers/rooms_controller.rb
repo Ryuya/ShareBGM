@@ -3,7 +3,6 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
-    
   end
   
   
@@ -123,6 +122,5 @@ end
     flash[:success] = "#{@room.name}を削除しました"
     redirect_to rooms_path
   end
-  
 end
 

@@ -1,3 +1,4 @@
+<h3>いいねをした動画をプレイリストにインポートできるといいかもしれない</h3>
 <%= form_for @playlist do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
@@ -9,10 +10,26 @@
       <%= f.text_area :description, :size=>"100",cols: "30", rows: "10",placeholder: "内容" %>
     </div>
     
-    <%= f.fields_for :movie_urls do |mf| %>
-      <%= render partial: "movie_url_form", locals: {mf: mf } %>
-    <% end %>
+    <%#= f.fields_for :movie_urls do |mf| %>
+      <%#= render partial: "movie_url_form", locals: {mf: mf } %>
+    <%# end %>
     
+     <table class="table table-striped table-bordered table-hover">
+          <tbody>
+            <tr>
+               <th>Youtube URL</th>
+               <th>Title</th>
+               <th>詳細</th>
+               <th>Action</th>
+            <%= f.nested_fields_for :movie_urls, wrapper_tag: :tr do |q| %>
+              <td><%= q.text_field   :url,     class: 'form-control' %></td>
+              <td><%= q.text_field   :title,     class: 'form-control' %></td>
+              <td><%= q.text_field   :description,     class: 'form-control' %></td>
+              <td><%= q.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %></td>
+              
+            <% end %>
+          </tbody>
+          <%= f.add_nested_fields_link :movie_urls, 'Add new', class: 'btn btn-primary', role: 'button' %>
     <div class="button_wrap">
       <input type="submit" value="保存する" class="button">
     </div>

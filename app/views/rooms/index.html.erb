@@ -1,18 +1,19 @@
-<div class="index-menu">
-    <%= link_to "Playlistを作る",new_playlist_path %>
-    <%= link_to "部屋を立てる", new_room_path %>
-</div>
-
-<div class="room clearfix">
-    <ul>
-        <% @rooms.each_with_index do |room,i| %>
-            <li id="<%= room.id %>">
-                    <h5><%= link_to "Room" + i.to_s , room_path(room) %></h5>
-                    <%= link_to room.name, room_path(room) %>
-                    </br>
-                    <%= room.description %>
-                    <%= link_to "削除", room ,method: :delete ,data: { confirm: "You sure?" } %>
-            </li>
-        <% end %>
-    </ul>
+<div class="main">
+    <div class="index-menu">
+        <%= link_to "Playlistを作る",new_playlist_path,class: "glyphicon glyphicon-headphones" %>
+        <%= link_to "部屋を立てる", new_room_path,class: "glyphicon glyphicon-home" %>
+    </div>
+    <h1>部屋一覧</h1>
+    <div class="room clearfix">
+        <ul>
+            <% @rooms.each_with_index do |room,i| %>
+                <li id="<%= room.id %>">
+                        <h5><%= link_to room.name, room_path(room) %></h5>
+                        
+                        <%= room.description %>
+                        <%= link_to "削除", room ,method: :delete ,data: { confirm: "You sure?" } %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
 </div>

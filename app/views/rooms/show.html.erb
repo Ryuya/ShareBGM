@@ -1,14 +1,17 @@
  <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
+ <div class="room-block2 clearfix">
+   <div id="player"></div>
     
-    <div id="chat">
+    <div id="chat" class="clearfix">
     
     </div>
-<div id="box">
+ </div>
+    
+<div class="clearfix cueplaylist">
     <ul id="playlist">
       <% @room.playlist.movie_urls.each do |movie_url| %>
        <!-- https://www.youtube.com/watch?v=GJI4Gv7NbmE&list=RDNum8ZWWmPhQ&index=6 v= & までがid-->
-       <li data-movie_id="<%= movie_url.ytid %>"><%= movie_url.title %><img src ="https://i.ytimg.com/vi/<%= movie_url.ytid %>/default.jpg" ></li>
+       <li  data-movie_id="<%= movie_url.ytid %>"><div class="multiline-text"><%= movie_url.title %></div><img src ="https://i.ytimg.com/vi/<%= movie_url.ytid %>/default.jpg" ></li>
       <% end %>
     </ul>
 </div>

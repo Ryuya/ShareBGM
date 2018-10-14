@@ -94,7 +94,8 @@ class PlaylistsController < ApplicationController
         :id,
         :url,
         :title,
-        :description
+        :description,
+        :_destroy
       ],
     );
   end

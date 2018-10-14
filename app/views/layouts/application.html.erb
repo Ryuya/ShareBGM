@@ -10,8 +10,10 @@
   </head>
   <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
     <header>
-      <%= link_to "top",root_path %>
-      <%= link_to "ログアウト" , destroy_user_session_path , method: :delete %>
+      <%= link_to image_tag('logo.png', :size => "150x60",:alt => "アイコン"),root_path %>
+      
+      <%= link_to " Logout" , destroy_user_session_path ,class: "logout btn btn-info btn-lg glyphicon glyphicon-log-out", method: :delete %>
+
     </header>
     <% flash.each do |type, message| %>
       <div class="alert alert-<%= type %>"><%= message %></div>

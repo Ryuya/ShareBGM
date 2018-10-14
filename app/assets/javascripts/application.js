@@ -15,3 +15,4 @@
 //= require activestorage
 //= require_tree .
 //= require bootstrap-sprockets
+//= require nested_form_fields

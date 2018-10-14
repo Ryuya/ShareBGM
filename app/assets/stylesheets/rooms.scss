@@ -1,6 +1,15 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+ul{
+    padding:0px;
+}
+
+
+
 .room{
     border:solid 1px black;
     li{
@@ -18,7 +27,6 @@
             margin-left:0px;
         }
     }
-    
 }
 
 .clearfix:after{
@@ -31,10 +39,11 @@
 #playlist li {
     display: block;
     width: 148px;
-    height: 170px;
+    height: 200px;
     float: left;
     margin: 0;
-    padding: 10px;
+    padding: 3px;
+    color:white;
     &:hover{
         cursor:pointer;
         background-color:#ccc;
@@ -42,7 +51,12 @@
     img{
         width:100%;
     }
-    
+}
+
+.cueplaylist{
+    width:100%;
+    border-top: solid 3px rgb(50,50,50);
+    background-color:#3B3B3B;
 }
 
 #player{
@@ -51,10 +65,11 @@
 
 #chat{
     float:left;
-    border:solid 1px black;
+    //border:solid 1px black;
     width:500px;
     height:359px;
     box-sizing:boder-box;
+    
 }
 
 .box{
@@ -62,10 +77,30 @@
     
 }
 
+.room-block2 {
+    margin: 0 auto;
+    width: 1140px;
+}
+
 .playing {
     border:solid 2px hotpink;
 }
 
-.index-menu{
+.index-menu {
     border:solid 1px black;
+    font-size:25px;
+    
+    a{
+        color:black;
+    }
 }
+
+.multiline-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    width: 124px;
+    height: 78px;
+    overflow: hidden;
+}
+
