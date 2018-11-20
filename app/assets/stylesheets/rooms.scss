@@ -9,6 +9,20 @@ ul{
 }
 
 
+input, textarea {
+  /* すべてのテキストフィールドのフォント設定を一致させる
+     デフォルトで、textarea は等幅フォントが設定されている */
+  font: 1em sans-serif;
+
+  /* すべてのテキストフィールドを同じサイズにする */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* テキストフィールドのボーダーの外見を同一にする */
+  border: 1px solid #999;
+}
+
+
 
 .room{
     border:solid 1px black;
@@ -19,6 +33,7 @@ ul{
         margin:20px;
         width:200px;
         height:110px;
+        display: inline-block;
         list-style-type:none;
         &:last-child:after{
             clear:both;
@@ -35,22 +50,81 @@ ul{
 	display: block;
 }
 
+.playlist-wrapper{
+    width:70%;
+    float:left;
+    border-right:dashed 8px gray;
 
-#playlist li {
-    display: block;
-    width: 148px;
-    height: 200px;
-    float: left;
-    margin: 0;
-    padding: 3px;
-    color:white;
+}
+
+#playlist {
+    white-space:nowrap;
+    overflow-x:auto;
+    li {
+        display: inline-block;
+        width: 148px;
+        height: 200px;
+        margin: 0;
+        padding: 3px;
+        color:white;
+        &:hover{
+            cursor:pointer;
+            background-color:#ccc;
+        }
+        img{
+            width:100%;
+        }
+    }
+    
+}
+
+.syncbutton {
+    font-size:23px;
+    height:23px;
+    width:23px;
+    left: 35%;
+    top: 8px;
+    margin:0 auto;
     &:hover{
         cursor:pointer;
-        background-color:#ccc;
     }
-    img{
-        width:100%;
-    }
+}
+
+.loges{
+    width:100%;
+    height:300px;
+    padding:5px;
+    background-color:white;
+    overflow:scroll;
+}
+
+.log{
+    border:solid 1px ;
+    margin-top: 5px;
+}
+
+.comment{
+    width:100%;
+    height:60px;
+    padding:5px;
+    background-color:white;
+
+}
+
+.user-image{
+    border: solid 1px;
+    float:left;
+    width: 38px;
+    height: 38px;
+}
+
+.user-name{
+    border: solid 1px;
+    width: 100%;
+}
+
+.text{
+    margin-left:16px;
 }
 
 .cueplaylist{
@@ -96,11 +170,36 @@ ul{
 }
 
 .multiline-text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
+    
     -webkit-line-clamp: 4;
     width: 124px;
     height: 78px;
     overflow: hidden;
 }
 
+.room-ichiran{
+    width:200px;
+    margin:0 auto;
+}
+
+
+.Addform{
+    width: 300px;
+    height: 127px;
+    padding:30px;
+    float:left;
+}
+
+.add-url
+{
+    color:white;
+}
+
+.field{
+    margin-top:15px;
+}
+
+.horizontal-list{
+    
+    
+}

@@ -105,6 +105,7 @@ end
   
   def show
     @room = Room.find(params[:id])
+    @playlist = @room.playlist
   end
   
   def room_params

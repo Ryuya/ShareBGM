@@ -9,7 +9,7 @@
     <%= include_gon %>
   </head>
   <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
-    <header>
+    <header class="header">
       <%= link_to image_tag('logo.png', :size => "150x60",:alt => "アイコン"),root_path %>
       
       <%= link_to " Logout" , destroy_user_session_path ,class: "logout btn btn-info btn-lg glyphicon glyphicon-log-out", method: :delete %>

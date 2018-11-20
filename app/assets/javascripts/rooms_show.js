@@ -9,13 +9,11 @@ $(document).on('ready',function(){
   
   //show.html.erbにulを用意しておく。
   if(controller === "rooms" && action === "show"){
-    // if (window.YT) {
-    //   window.onYouTubeIframeAPIReady && window.onYouTubeIframeAPIReady();
-    //   return;
-    // }else{
+    
     $.getScript("https://www.youtube.com/iframe_api")
     // }
-  
+    let itemHTML = '<div class="glyphicon glyphicon-refresh syncbutton style="top:8px;" ></div>';
+    $('header').append(itemHTML);
     let videoId = getMovieIdByIndex(0);
     
     window.onYouTubeIframeAPIReady = function() {
@@ -36,6 +34,9 @@ function onPlayerReady(event) {
   $('#playlist li').on('click',function(){
     index =  $('#playlist li').index(this);
     playMovieByIndex(index);
+  });
+  $('.syncbutton').on('click',function(){
+    console.log("ブロードキャスト");
   });
   //SeeqTo()を使う
   playMovieByIndex(index);
