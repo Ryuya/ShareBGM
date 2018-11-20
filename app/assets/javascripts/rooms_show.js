@@ -1,5 +1,4 @@
 /* global $ YT */
-let player = null;
 let index = 0;
 
 $(document).on('ready',function(){
@@ -17,7 +16,7 @@ $(document).on('ready',function(){
     let videoId = getMovieIdByIndex(0);
     
     window.onYouTubeIframeAPIReady = function() {
-      player = new YT.Player('player', {
+      gon.player = new YT.Player('player', {
         height: '360',
         width: '640',
         videoId: videoId,
@@ -40,15 +39,15 @@ function onPlayerReady(event) {
   });
   //SeeqTo()を使う
   playMovieByIndex(index);
-  player.playVideo();
+  gon.player.playVideo();
 }
 
 //五行以内に関数名がその処理そのもの
 function playMovieByIndex(index){
   $(".playing").removeClass("playing");
   $('#playlist li').eq(index).addClass("playing");
-  player.loadVideoById(getMovieIdByIndex(index),0,"default");
-  player.seekTo(0,true);
+  gon.player.loadVideoById(getMovieIdByIndex(index),0,"default");
+  gon.player.seekTo(0,true);
   
 }
 
@@ -62,7 +61,7 @@ function nextVideo(){
 }
 
 function stopVideo() {
-  player.stopVideo();
+  gon.player.stopVideo();
 }
 function onPlayerStateChange(event) {
   var ytStatus = event.data;
