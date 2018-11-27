@@ -2,6 +2,7 @@
 let index = 0;
 
 $(document).on('ready',function(){
+  
   let controller = $('body').data('controller');
   let action = $('body').data('action');
   console.log("controller:"+controller + ",action:"+action);
@@ -16,7 +17,9 @@ $(document).on('ready',function(){
     let videoId = getMovieIdByIndex(0);
     
     window.onYouTubeIframeAPIReady = function() {
-      gon.player = new YT.Player('player', {
+      console.log(App);
+      //gon.player = new YT.Player('player', {
+      App.yt_player =  new YT.Player('player', {
         height: '360',
         width: '640',
         videoId: videoId,
@@ -39,15 +42,15 @@ function onPlayerReady(event) {
   });
   //SeeqTo()を使う
   playMovieByIndex(index);
-  gon.player.playVideo();
+  App.yt_player.playVideo();
 }
 
 //五行以内に関数名がその処理そのもの
 function playMovieByIndex(index){
   $(".playing").removeClass("playing");
   $('#playlist li').eq(index).addClass("playing");
-  gon.player.loadVideoById(getMovieIdByIndex(index),0,"default");
-  gon.player.seekTo(0,true);
+  App.yt_player.loadVideoById(getMovieIdByIndex(index),0,"default");
+  App.yt_player.seekTo(0,true);
   
 }
 
@@ -61,7 +64,7 @@ function nextVideo(){
 }
 
 function stopVideo() {
-  gon.player.stopVideo();
+  App.yt_player.stopVideo();
 }
 function onPlayerStateChange(event) {
   var ytStatus = event.data;

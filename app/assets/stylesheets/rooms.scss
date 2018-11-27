@@ -170,11 +170,10 @@ input, textarea {
 }
 
 .multiline-text {
-    
-    -webkit-line-clamp: 4;
     width: 124px;
     height: 78px;
     overflow: hidden;
+    white-space: normal;
 }
 
 .room-ichiran{
