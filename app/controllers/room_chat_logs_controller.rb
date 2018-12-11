@@ -1,0 +1,2 @@
+class RoomChatLogsController < ApplicationController
+end

@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
   has_many :user_playlists
   has_many :playlists, through: :user_playlists
+  has_many :room_chat_logs
 end

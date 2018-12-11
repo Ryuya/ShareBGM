@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_093226) do
+ActiveRecord::Schema.define(version: 2018_12_10_091407) do
 
   create_table "movie_urls", force: :cascade do |t|
     t.string "url"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 2018_10_22_093226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_playlists_on_user_id"
+  end
+
+  create_table "room_chat_logs", force: :cascade do |t|
+    t.string "log"
+    t.integer "user_id"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_chat_logs_on_room_id"
+    t.index ["user_id"], name: "index_room_chat_logs_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
