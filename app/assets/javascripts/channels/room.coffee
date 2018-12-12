@@ -37,7 +37,6 @@ $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   # バリデーションチェックや、データの加工を行う。
   #
   if event.keyCode is 13
-    App.room.speak event.target.value , $("#room").data('room_id') , $("#room").data('user_id')
+    App.room.speak event.target.value, 
     event.target.value = ''
     event.preventDefault()
-  #バリデーションチェックの結果submitしない場合、return falseすることでsubmitを中止することができる。

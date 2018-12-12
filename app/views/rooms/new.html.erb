@@ -10,11 +10,11 @@
         <%= f.text_area :description, :size=>"100",cols: "30", rows: "10",placeholder: "内容" %>
       </div>
       <div class="field">
-        <%= f.collection_select  :playlist_id, @pulldown_playlists, :id, :name ,{prompt: 'プレイリストを選択してください'}, {disabled: false}%>
-        <% if @pulldown_playlists.empty? %>
-          <%= f.collection_select  :playlist_id, @pulldown_playlists, :id, :name ,{prompt: 'プレイリストを選択してください'}, {disabled: true}%>
-          <%= link_to "プレイリストを作成してください",new_playlist_path %>
-        <%end%>
+        <%= link_to "プレイリストを作成しますか？",new_playlist_path %>
+        <%= f.collection_select  :playlist_id, @pulldown_playlists, :id, :name ,{prompt: 'プレイリストを選択してください'}%>
+        <%# if @pulldown_playlists.empty? %>
+        <%# else %>
+        <%# end%>
       </div>
       <div class="button_wrap">
         <input type="submit" value="保存する" class="button">
