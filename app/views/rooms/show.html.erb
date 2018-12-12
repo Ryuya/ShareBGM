@@ -42,7 +42,7 @@
           <span class="add-url"><%= f.label :url, "追加したいURL" %></span>
           <%= f.text_field :url, size: "100",cols: "30", rows: "10",placeholder: "URL",class: "form-control add-url-form" %>
         </div>
-        <div class="field" data-behavior="room_speaker_chat">
+        <div class="field">
           <%= f.submit "追加",class:"btn btn-default" %>
         </div>
         <%= f.hidden_field :room_id, :value => @room.id %>

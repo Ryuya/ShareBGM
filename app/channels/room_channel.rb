@@ -21,6 +21,5 @@ class RoomChannel < ApplicationCable::Channel
     #ActionCable.server.broadcast 'room_channel', message: data['message']
     #RoomChannel.broadcast_to room, message: data['message']
     RoomChatLog.create! log: data['log'] ,room_id: data['room_id'],user_id: data['user_id']
-
   end
 end

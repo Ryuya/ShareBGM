@@ -37,6 +37,18 @@ $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   # バリデーションチェックや、データの加工を行う。
   #
   if event.keyCode is 13
-    App.room.speak event.target.value, 
+    App.room.speak event.target.value, $("#room").data('room_id'), $("#room").data('user_id')
     event.target.value = ''
+    $('.loges').animate { scrollTop: $('.loges')[0].scrollHeight }, 'fast'
     event.preventDefault()
+    #sampleElement = $('.loges')
+    #value = sampleElement.scrollHeight
+
+    
+    #maxScrollValue = @scrollHeight - (@offsetHeight)
+    
+    #$(sampleElement).scrollTop maxScrollValue
+    #sampleElement.onscroll = ->
+    #maxScrollValue = @scrollHeight
+    #$(sampleElement).scrollTop maxScrollValue
+
