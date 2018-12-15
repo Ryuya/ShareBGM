@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :user_playlists
   has_many :playlists, through: :user_playlists
   has_many :room_chat_logs
+  has_many :room_members,dependent: :destroy
+
 end

@@ -1,33 +1,47 @@
 $ -> 
   App.room = App.cable.subscriptions.create {channel: "RoomChannel", id: $("#room").data('room_id')},
-    connected: ->
+    connected: (room_id,user_id) ->
       # Called when the subscription is ready for use on the server
-  
-    disconnected: ->
-      # Called when the subscription has been terminated by the server
-  
+      App.room.join $("#room").data('room_id') , $("#room").data('user_id'), $("#memberNum").data('membernum')
+    disconnected: (room_id,user_id) ->
+      # Called when the subscription has been terminated exiby the server
+      App.room.leave $("#room").data('room_id') , $("#room").data('user_id')
+
     received: (data) ->
       # Called when there's incoming data on the websocket for this channel
       if data['room_chat_log'] == undefined
-        console.log("Time");
+        console.log("チャット機能は呼ばれませんでした。");
       else
         #alert data['room_chat_log']
         $('.loges').append data['room_chat_log']
-        
+        $('.loges').animate { scrollTop: $('.loges')[0].scrollHeight }, 'fast'
+
       if data['time'] == undefined
-        console.log("Message");
+        console.log("Speakは呼ばれませんでした");
       else
           App.yt_player.loadVideoById(data['id'],Number(data['time']))
           console.log(data['time'])
-      
+          
+      if data["memberNum"] == undefined
+        console.log("joinは呼ばれませんでした");
+      else 
+        console.log(data["memberNum"])
+        $("#memberNum").text(+data['memberNum']+1 +"人")
     sync:(time,id,room_id) ->
       @perform 'sync', time: time ,id: id, room_id: room_id
       
     speak: (log,room_id,user_id) ->
       @perform 'speak', log: log , room_id: room_id , user_id: user_id
       
+    join: (room_id,user_id,memberNum) ->
+      @perform 'join', room_id: room_id, user_id: user_id , memberNum: memberNum
+      
+      
+    leave: (room_id,user_id) ->
+      @perform 'leave', room_id: room_id, user_id: user_id
+      
 $(document).on 'click', '.syncbutton', ->
-  
+
   App.room.sync App.yt_player.getCurrentTime() , App.yt_player.getVideoData()['video_id'], $("#room").data('room_id')
   
 # setTimeout
@@ -39,7 +53,6 @@ $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13
     App.room.speak event.target.value, $("#room").data('room_id'), $("#room").data('user_id')
     event.target.value = ''
-    $('.loges').animate { scrollTop: $('.loges')[0].scrollHeight }, 'fast'
     event.preventDefault()
     #sampleElement = $('.loges')
     #value = sampleElement.scrollHeight

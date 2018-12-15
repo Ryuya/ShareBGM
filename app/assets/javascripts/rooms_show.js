@@ -1,6 +1,5 @@
 /* global $ YT */
 let index = 0;
-
 $(document).on('ready',function(){
   
   let controller = $('body').data('controller');
@@ -39,10 +38,12 @@ function onPlayerReady(event) {
   });
   $('.syncbutton').on('click',function(){
     console.log("ブロードキャスト");
+    playMovieByIndex(index);
+    App.yt_player.playVideo();
+
   });
-  //SeeqTo()を使う
-  playMovieByIndex(index);
-  App.yt_player.playVideo();
+  //playMovieByIndex(index);
+  //stopVideo();
 }
 
 //五行以内に関数名がその処理そのもの
@@ -51,7 +52,7 @@ function playMovieByIndex(index){
   $('#playlist li').eq(index).addClass("playing");
   App.yt_player.loadVideoById(getMovieIdByIndex(index),0,"default");
   App.yt_player.seekTo(0,true);
-  
+  App.yt_player.playVideo();
 }
 
 function getMovieIdByIndex(index){

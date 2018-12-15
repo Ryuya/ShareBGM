@@ -3,6 +3,14 @@
    <div id="player"></div>
     
     <div id="chat" class="clearfix">
+      <div class="memberNum" >
+          <div class = "glyphicon glyphicon-eye-open" ></div>
+          <% a = 0 %>
+          <% @room.room_members.each do |f| %>
+            <% a = a + 1 %>
+          <% end %>
+          <span id = "memberNum" data-memberNum="<%= a %>"> <%= a %> 人</span>
+        </div>
       <div class="loges">
         <%= render @room_chat_logs %>
       </div>
@@ -39,7 +47,7 @@
       <div class="form-group">
     		
         <div class="field　">
-          <span class="add-url"><%= f.label :url, "追加したいURL" %></span>
+          <span class="add-url"><%= f.label :url, "追加したいYoutube動画のURL" %></span>
           <%= f.text_field :url, size: "100",cols: "30", rows: "10",placeholder: "URL",class: "form-control add-url-form" %>
         </div>
         <div class="field">
@@ -52,12 +60,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-    
-<script>
-</script>
-   
-
-

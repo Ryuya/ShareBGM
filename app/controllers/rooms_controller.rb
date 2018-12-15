@@ -107,13 +107,14 @@ end
     @room = Room.find(params[:id])
     @playlist = @room.playlist
     @room_chat_logs = @room.room_chat_logs
+    gon.memberNum = ""
   end
   
   def room_params
     params.require(:room).permit(
       :name,
       :description,
-      :playlist_id
+      :playlist_id,
       );
   end
   

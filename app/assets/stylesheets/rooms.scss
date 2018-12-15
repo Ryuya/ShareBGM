@@ -90,11 +90,14 @@ input, textarea {
     }
 }
 
+.memberNum{
+    height:20px;
+}
+
 .loges{
     width:100%;
-    height:300px;
+    height:280px;
     padding:5px;
-    background-color:white;
     overflow:scroll;
 }
 
@@ -143,7 +146,7 @@ input, textarea {
     width:500px;
     height:359px;
     box-sizing:boder-box;
-    
+    background-color:white;
 }
 
 .box{
