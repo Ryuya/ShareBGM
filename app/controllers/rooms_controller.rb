@@ -91,7 +91,7 @@ end
   end
   
   def create
-    @room = Room.new(room_params)
+    @room = current_user.rooms.new(room_params)
     #外すと動く・・・
     #@room.playlist = Playlist.find(params[:room][:playlist_id])
     if @room.save
@@ -107,7 +107,6 @@ end
     @room = Room.find(params[:id])
     @playlist = @room.playlist
     @room_chat_logs = @room.room_chat_logs
-    gon.memberNum = ""
   end
   
   def room_params

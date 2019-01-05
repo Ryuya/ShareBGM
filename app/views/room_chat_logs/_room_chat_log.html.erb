@@ -1,8 +1,10 @@
 <div class="log">
   <div class="user-image">
+    <img src="<%= room_chat_log.user.image %>"width="38" height="38"></img>
   </div>
   <div class="user-name clearfix">
     <%= room_chat_log.user.username %>
+    <%= room_chat_log.user.name %>
     <div class="text">
      <p><%= room_chat_log.log %></p>
     </div>

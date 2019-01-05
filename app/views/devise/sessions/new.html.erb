@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<h2>ログインページ</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -22,5 +22,7 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
+<i class="fab fa-twitter fa-3x"></i>
+<h2><%= link_to 'Twitterログイン', user_twitter_omniauth_authorize_path %></h2>
+<br/>
 <%= render "devise/shared/links" %>

@@ -1,50 +1,51 @@
 $ -> 
-  App.room = App.cable.subscriptions.create {channel: "RoomChannel", id: $("#room").data('room_id')},
+  App.room = App.cable.subscriptions.create {channel: "RoomChannel", id: $("#room").data('room_id'), user_id: $("#room").data("user_id")},
     connected: (room_id,user_id) ->
       # Called when the subscription is ready for use on the server
-      App.room.join $("#room").data('room_id') , $("#room").data('user_id'), $("#memberNum").data('membernum')
+      # App.room.join $("#room").data('room_id') , $("#room").data('user_id'), $("#memberNum").data('membernum')
     disconnected: (room_id,user_id) ->
       # Called when the subscription has been terminated exiby the server
-      App.room.leave $("#room").data('room_id') , $("#room").data('user_id')
-
+      # App.room.leave $("#room").data('room_id') , $("#room").data('user_id')
+      
     received: (data) ->
       # Called when there's incoming data on the websocket for this channel
       if data['room_chat_log'] == undefined
-        console.log("チャット機能は呼ばれませんでした。");
+        console.log("チャット機能は呼ばれませんでした。")
       else
-        #alert data['room_chat_log']
         $('.loges').append data['room_chat_log']
         $('.loges').animate { scrollTop: $('.loges')[0].scrollHeight }, 'fast'
 
       if data['time'] == undefined
-        console.log("Speakは呼ばれませんでした");
+        console.log("Speakは呼ばれませんでした")
       else
-          App.yt_player.loadVideoById(data['id'],Number(data['time']))
-          console.log(data['time'])
+        console.log(data)
+        App.yt_player.loadVideoById(data['id'],Number(data['time']))
+        console.log(data['time'])
           
       if data["memberNum"] == undefined
-        console.log("joinは呼ばれませんでした");
+        console.log("joinは呼ばれませんでした")
       else 
         console.log(data["memberNum"])
-        $("#memberNum").text(+data['memberNum']+1 +"人")
+        $("#memberNum").text(data['memberNum']+"人")
+      
+      if data["subscribed"] == true && $("#room").data("host_user") != undefined && App.yt_player.getCurrentTime() != undefined
+        console.log($("#room").data("host_user"))
+        App.room.sync App.yt_player.getCurrentTime(), App.yt_player.getVideoData()['video_id'], $("#room").data('room_id')
+        
+
+        
     sync:(time,id,room_id) ->
       @perform 'sync', time: time ,id: id, room_id: room_id
       
     speak: (log,room_id,user_id) ->
       @perform 'speak', log: log , room_id: room_id , user_id: user_id
       
-    join: (room_id,user_id,memberNum) ->
-      @perform 'join', room_id: room_id, user_id: user_id , memberNum: memberNum
-      
-      
-    leave: (room_id,user_id) ->
-      @perform 'leave', room_id: room_id, user_id: user_id
+    join: () ->
+      @perform 'join'
       
 $(document).on 'click', '.syncbutton', ->
+  App.room.sync App.yt_player.getCurrentTime(), App.yt_player.getVideoData()['video_id'], $("#room").data('room_id')
 
-  App.room.sync App.yt_player.getCurrentTime() , App.yt_player.getVideoData()['video_id'], $("#room").data('room_id')
-  
-# setTimeout
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   #
@@ -54,6 +55,15 @@ $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
     App.room.speak event.target.value, $("#room").data('room_id'), $("#room").data('user_id')
     event.target.value = ''
     event.preventDefault()
+    
+$(document).on 'click', '[data-behavior~=room_syncer]', (event) ->
+  console.log("aaa");
+  #
+  # バリデーションチェックや、データの加工を行う。
+  #
+  #App.room.speak event.target.value, $("#room").data('room_id'), $("#room").data('user_id')
+  #event.target.value = ''
+  #event.preventDefault()
     #sampleElement = $('.loges')
     #value = sampleElement.scrollHeight
 

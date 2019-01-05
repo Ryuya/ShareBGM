@@ -33,6 +33,7 @@ input, textarea {
         margin:20px;
         width:200px;
         height:110px;
+        overflow:scroll;
         display: inline-block;
         list-style-type:none;
         &:last-child:after{

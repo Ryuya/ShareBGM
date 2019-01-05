@@ -10,7 +10,7 @@ $(document).on('ready',function(){
   if(controller === "rooms" && action === "show"){
     
     $.getScript("https://www.youtube.com/iframe_api")
-    // }
+
     let itemHTML = '<div class="glyphicon glyphicon-refresh syncbutton style="top:8px;" ></div>';
     $('header').append(itemHTML);
     let videoId = getMovieIdByIndex(0);
@@ -32,14 +32,15 @@ $(document).on('ready',function(){
 });
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
+  App.room.join();
   $('#playlist li').on('click',function(){
     index =  $('#playlist li').index(this);
     playMovieByIndex(index);
   });
   $('.syncbutton').on('click',function(){
     console.log("ブロードキャスト");
-    playMovieByIndex(index);
-    App.yt_player.playVideo();
+    //playMovieByIndex(index);
+    //App.yt_player.playVideo();
 
   });
   //playMovieByIndex(index);

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'movie_urls/index'
   get 'rooms/index'
   get 'playlists/index'
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root "rooms#index"
   
   resources :playlists

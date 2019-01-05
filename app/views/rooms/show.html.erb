@@ -1,15 +1,10 @@
  <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
- <div class="room-block2 clearfix" id="room" data-room_id="<%= @room.id %>" data-user_id="<%= current_user.id %>">
+ <div class="room-block2 clearfix" id="room" data-room_id="<%= @room.id %>" data-user_id="<%= current_user.id %>" <%= "data-host_user" if current_user.id == @room.admin_user_id %> >
    <div id="player"></div>
-    
     <div id="chat" class="clearfix">
       <div class="memberNum" >
           <div class = "glyphicon glyphicon-eye-open" ></div>
-          <% a = 0 %>
-          <% @room.room_members.each do |f| %>
-            <% a = a + 1 %>
-          <% end %>
-          <span id = "memberNum" data-memberNum="<%= a %>"> <%= a %> 人</span>
+          <span id = "memberNum" data-memberNum="<%= @room.room_members.count %>"> <%= @room.room_members.count %> 人</span>
         </div>
       <div class="loges">
         <%= render @room_chat_logs %>
