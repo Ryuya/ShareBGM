@@ -14,7 +14,11 @@ $ ->
       else
         $('.loges').append data['room_chat_log']
         $('.loges').animate { scrollTop: $('.loges')[0].scrollHeight }, 'fast'
-
+        
+      if data['movie_url'] != undefined
+        console.log(data)
+        $("#playlist").append data['movie_url']
+         
       if data['time'] == undefined
         console.log("Speakは呼ばれませんでした")
       else
@@ -43,6 +47,12 @@ $ ->
     join: () ->
       @perform 'join'
       
+    movie_create: (url,room_id,user_id)->
+      console.log('url:' + url)
+      console.log('room_id:' + room_id)
+      console.log('user_id:' + user_id)
+      @perform 'movie_create', url: url, room_id: room_id, user_id: user_id
+      
 $(document).on 'click', '.syncbutton', ->
   App.room.sync App.yt_player.getCurrentTime(), App.yt_player.getVideoData()['video_id'], $("#room").data('room_id')
 
@@ -57,7 +67,9 @@ $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
     event.preventDefault()
     
 $(document).on 'click', '[data-behavior~=room_syncer]', (event) ->
-  console.log("aaa");
+  App.room.movie_create document.forms.new_movie_url.movie_url_url.value,$("#room").data('room_id'),$("#room").data('user_id')
+  document.forms.new_movie_url.movie_url_url.value = ''
+  event.preventDefault()
   #
   # バリデーションチェックや、データの加工を行う。
   #

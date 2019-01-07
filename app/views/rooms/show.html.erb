@@ -17,7 +17,7 @@
  </div>
     
 <div class="clearfix cueplaylist">
-  <div class="playlist-wrapper">
+  <div class="playlist-wrapper"> 
     <ul id="playlist" class="clearfix horizontal-list">
       <% @room.playlist.movie_urls.each do |movie_url| %>
        <!-- https://www.youtube.com/watch?v=GJI4Gv7NbmE&list=RDNum8ZWWmPhQ&index=6 v= & までがid-->
@@ -43,9 +43,11 @@
     		
         <div class="field　">
           <span class="add-url"><%= f.label :url, "追加したいYoutube動画のURL" %></span>
-          <%= f.text_field :url, size: "100",cols: "30", rows: "10",placeholder: "URL",class: "form-control add-url-form" %>
+          <div id="add_yt_url">
+            <%= f.text_field :url, size: "100",cols: "30", rows: "10",placeholder: "URL",class: "form-control add-url-form" %>
+          </div>
         </div>
-        <div class="field">
+        <div class="field" data-behavior="room_syncer">
           <%= f.submit "追加",class:"btn btn-default" %>
         </div>
         <%= f.hidden_field :room_id, :value => @room.id %>

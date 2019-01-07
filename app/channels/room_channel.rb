@@ -32,6 +32,13 @@ class RoomChannel < ApplicationCable::Channel
     RoomChatLog.create! log: data['log'] ,room_id: data['room_id'],user_id: data['user_id']
   end
   
+  def movie_create(data)
+    p "テスト"
+    p data
+    room = Room.find(data['room_id'])
+    MovieUrl.create! playlist_id: room.playlist_id, url: data["url"],user_id: data["user_id"]
+  end
+  
   def join()
     # room = Room.find(data['room_id'])
     # room.room_members.create! room_id: data['room_id'],user_id: data['user_id']
