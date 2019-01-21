@@ -9,28 +9,25 @@ $ ->
       
     received: (data) ->
       # Called when there's incoming data on the websocket for this channel
-      if data['room_chat_log'] == undefined
-        console.log("チャット機能は呼ばれませんでした。")
-      else
+      if data['room_chat_log'] != undefined
         $('.loges').append data['room_chat_log']
         $('.loges').animate { scrollTop: $('.loges')[0].scrollHeight }, 'fast'
         
       if data['movie_url'] != undefined
-        console.log(data)
         $("#playlist").append data['movie_url']
+        $.getScript("javascriptd/room_show.js")
+        $('#playlist li').last().addEventListener("click",addClicEvent(), false)
+        
          
-      if data['time'] == undefined
-        console.log("Speakは呼ばれませんでした")
-      else
-        console.log(data)
+      if data['time'] != undefined
         App.yt_player.loadVideoById(data['id'],Number(data['time']))
+        App.yt_player.playVideo()
         console.log(data['time'])
           
-      if data["memberNum"] == undefined
-        console.log("joinは呼ばれませんでした")
-      else 
+      if data["memberNum"] != undefined
         console.log(data["memberNum"])
         $("#memberNum").text(data['memberNum']+"人")
+
       
       if data["subscribed"] == true && $("#room").data("host_user") != undefined && App.yt_player.getCurrentTime() != undefined
         console.log($("#room").data("host_user"))

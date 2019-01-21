@@ -30,13 +30,24 @@ $(document).on('ready',function(){
     }
   }
 });
+
+var huga = 0;
+var hoge = setInterval(function() {
+    console.log(huga);
+    huga++;
+    //終了条件
+    if (huga == 1) {
+    clearInterval(hoge);
+    App.room.join();
+    console.log("終わり");
+    }
+}, 1700);
+
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-  App.room.join();
-  $('#playlist li').on('click',function(){
-    index =  $('#playlist li').index(this);
-    playMovieByIndex(index);
-  });
+  addClickEvent();
+  hoge();
+
   $('.syncbutton').on('click',function(){
     console.log("ブロードキャスト");
     //playMovieByIndex(index);
@@ -47,12 +58,18 @@ function onPlayerReady(event) {
   //stopVideo();
 }
 
+function addClickEvent(){
+  $('#playlist li').on('click',function(){
+    index =  $('#playlist li').index(this);
+    playMovieByIndex(index,0);
+  });
+}
+
 //五行以内に関数名がその処理そのもの
-function playMovieByIndex(index){
+function playMovieByIndex(index,videoTime = 0){
   $(".playing").removeClass("playing");
   $('#playlist li').eq(index).addClass("playing");
-  App.yt_player.loadVideoById(getMovieIdByIndex(index),0,"default");
-  App.yt_player.seekTo(0,true);
+  App.yt_player.loadVideoById(getMovieIdByIndex(index),videoTime,"default");
   App.yt_player.playVideo();
 }
 
@@ -62,7 +79,7 @@ function getMovieIdByIndex(index){
 
 function nextVideo(){
   index = (index === $("#playlist li").length - 1) ? 0 : index + 1;
-  playMovieByIndex(index);
+  playMovieByIndex(index,0);
 }
 
 function stopVideo() {
