@@ -1,0 +1,86 @@
+I"�(function() {
+  $(function() {
+    return App.room = App.cable.subscriptions.create({
+      channel: "RoomChannel",
+      id: $("#room").data('room_id'),
+      user_id: $("#room").data("user_id")
+    }, {
+      connected: function(room_id, user_id) {},
+      disconnected: function(room_id, user_id) {},
+      received: function(data) {
+        if (data['room_chat_log'] === void 0) {
+          console.log("チャット機能は呼ばれませんでした。");
+        } else {
+          $('.loges').append(data['room_chat_log']);
+          $('.loges').animate({
+            scrollTop: $('.loges')[0].scrollHeight
+          }, 'fast');
+        }
+        if (data['movie_url'] !== void 0) {
+          $("#playlist").append(data['movie_url']);
+        }
+        if (data['time'] === void 0) {
+          console.log("Speakは呼ばれませんでした");
+        } else {
+          console.log(data);
+          App.yt_player.loadVideoById(data['id'], Number(data['time']));
+          console.log(data['time']);
+        }
+        if (data["memberNum"] === void 0) {
+          console.log("joinは呼ばれませんでした");
+        } else {
+          console.log(data["memberNum"]);
+          $("#memberNum").text(data['memberNum'] + "人");
+        }
+        if (data["subscribed"] === true && $("#room").data("host_user") !== void 0 && App.yt_player.getCurrentTime() !== void 0) {
+          console.log($("#room").data("host_user"));
+          return App.room.sync(App.yt_player.getCurrentTime(), App.yt_player.getVideoData()['video_id'], $("#room").data('room_id'));
+        }
+      },
+      sync: function(time, id, room_id) {
+        return this.perform('sync', {
+          time: time,
+          id: id,
+          room_id: room_id
+        });
+      },
+      speak: function(log, room_id, user_id) {
+        return this.perform('speak', {
+          log: log,
+          room_id: room_id,
+          user_id: user_id
+        });
+      },
+      join: function() {
+        return this.perform('join');
+      },
+      movie_create: function(url, room_id, user_id) {
+        return this.perform('movie_create', {
+          url: url,
+          room_id: room_id,
+          user_id: user_id
+        });
+      }
+    });
+  });
+
+  $(document).on('click', '.syncbutton', function() {
+    return App.room.sync(App.yt_player.getCurrentTime(), App.yt_player.getVideoData()['video_id'], $("#room").data('room_id'));
+  });
+
+  $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
+    if (event.keyCode === 13) {
+      App.room.speak(event.target.value, $("#room").data('room_id'), $("#room").data('user_id'));
+      event.target.value = '';
+      return event.preventDefault();
+    }
+  });
+
+  $(document).on('click', '[data-behavior~=room_syncer]', function(event) {
+    App.room.movie_create(document.forms.new_movie_url.movie_url_url.value, $("#room").data('room_id'), $("#room").data('user_id'));
+    document.forms.new_movie_url.movie_url_url.value = '';
+    return event.preventDefault();
+  });
+
+}).call(this);
+:ET

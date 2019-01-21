@@ -1,0 +1,26 @@
+I"L(function() {
+  App.room = App.cable.subscriptions.create("RoomChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      if (data['time'] === void 0) {
+
+      } else {
+        gon.player.seekTo(data['time']);
+        gon.player.playVideo();
+        return console.log(data['time']);
+      }
+    },
+    sync: function(time) {
+      return this.perform('sync', {
+        time: time
+      });
+    }
+  });
+
+  $(document).on('click', '.syncbutton', function() {
+    return App.room.sync(gon.player.getCurrentTime());
+  });
+
+}).call(this);
+:ET

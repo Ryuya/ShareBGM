@@ -1,0 +1,12 @@
+I"(function() {
+  App.room = App.cable.subscriptions.create("RoomChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {},
+    sync: function() {
+      return this.perform('sync');
+    }
+  });
+
+}).call(this);
+:ET

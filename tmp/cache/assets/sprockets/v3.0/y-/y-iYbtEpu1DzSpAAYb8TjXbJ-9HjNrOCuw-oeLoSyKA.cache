@@ -1,0 +1,71 @@
+I"e(function() {
+  $(function() {
+    return App.room = App.cable.subscriptions.create({
+      channel: "RoomChannel",
+      id: $("#room").data('room_id')
+    }, {
+      connected: function(room_id, user_id) {
+        return App.room.join($("#room").data('room_id'), $("#room").data('user_id'));
+      },
+      disconnected: function(room_id, user_id) {
+        return App.room.leave($("#room").data('room_id'), $("#room").data('user_id'));
+      },
+      received: function(data) {
+        if (data['room_chat_log'] === void 0) {
+          console.log("Time");
+        } else {
+          $('.loges').append(data['room_chat_log']);
+          $('.loges').animate({
+            scrollTop: $('.loges')[0].scrollHeight
+          }, 'fast');
+        }
+        if (data['time'] === void 0) {
+          return console.log("Message");
+        } else {
+          App.yt_player.loadVideoById(data['id'], Number(data['time']));
+          return console.log(data['time']);
+        }
+      },
+      sync: function(time, id, room_id) {
+        return this.perform('sync', {
+          time: time,
+          id: id,
+          room_id: room_id
+        });
+      },
+      speak: function(log, room_id, user_id) {
+        return this.perform('speak', {
+          log: log,
+          room_id: room_id,
+          user_id: user_id
+        });
+      },
+      join: function(room_id, user_id) {
+        return this.perform('join', {
+          room_id: room_id,
+          user_id: user_id
+        });
+      },
+      leave: function(room_id, user_id) {
+        return this.perform('leave', {
+          room_id: room_id,
+          user_id: user_id
+        });
+      }
+    });
+  });
+
+  $(document).on('click', '.syncbutton', function() {
+    return App.room.sync(App.yt_player.getCurrentTime(), App.yt_player.getVideoData()['video_id'], $("#room").data('room_id'));
+  });
+
+  $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
+    if (event.keyCode === 13) {
+      App.room.speak(event.target.value, $("#room").data('room_id'), $("#room").data('user_id'));
+      event.target.value = '';
+      return event.preventDefault();
+    }
+  });
+
+}).call(this);
+:ET

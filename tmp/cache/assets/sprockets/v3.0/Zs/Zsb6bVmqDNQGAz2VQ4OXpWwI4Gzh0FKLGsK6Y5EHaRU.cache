@@ -1,0 +1,28 @@
+I"µ(function() {
+  App.room = App.cable.subscriptions.create("RoomChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      if (data['time'] === void 0) {
+
+      } else {
+        gon.player.seekTo(data['time']);
+        gon.player.loadVideoById(data['id']);
+        gon.player.playVideo();
+        return console.log(data['time']);
+      }
+    },
+    sync: function(time, id) {
+      return this.perform('sync', {
+        time: time,
+        id: id
+      });
+    }
+  });
+
+  $(document).on('click', '.syncbutton', function() {
+    return App.room.sync(gon.player.getCurrentTime()(gon.player.getVideoData()['video_id']));
+  });
+
+}).call(this);
+:ET

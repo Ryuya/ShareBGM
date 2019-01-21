@@ -1,0 +1,40 @@
+I"ë(function() {
+  App.room = App.cable.subscriptions.create("RoomChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      if (data['time'] === void 0) {
+        return;
+      } else {
+        gon.player.seekTo(data['time']);
+        gon.player.loadVideoById(data['id']);
+        gon.player.playVideo();
+        console.log(data['time']);
+      }
+      if (data['message'] !== void 0) {
+        return alert(data['message']);
+      }
+    },
+    sync: function(time, id) {
+      return this.perform('sync', {
+        time: time,
+        id: id
+      });
+    },
+    speak: function(message) {
+      return this.perform('speak', {
+        message: message
+      });
+    }
+  });
+
+  $(document).on('click', '.syncbutton', function() {
+    return App.room.sync(gon.player.getCurrentTime(), gon.player.getVideoData()['video_id']);
+  });
+
+  $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
+    return false;
+  });
+
+}).call(this);
+:ET
