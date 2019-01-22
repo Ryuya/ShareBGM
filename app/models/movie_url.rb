@@ -42,7 +42,7 @@ class MovieUrl < ApplicationRecord
         :api_method => youtube.search.list,
         :parameters => {
           :part => 'snippet',
-          :q => opts[:q],
+          :p => opts[:p],
           :maxResults => opts[:max_results]
         }
       )
@@ -66,8 +66,8 @@ class MovieUrl < ApplicationRecord
       puts "Videos:\n", videos, "\n"
       puts "Channels:\n", channels, "\n"
       puts "Playlists:\n", playlists, "\n"
-    rescue Google::APIClient::TransmissionError => e
-      puts e.result.body
+    rescue Google::APIClient::TransmissionError => p
+      puts p.result.body
     end
     self.title = videos
   end
