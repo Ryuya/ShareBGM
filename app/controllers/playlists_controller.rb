@@ -15,13 +15,13 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.new(playlist_params)
     @playlist.user_id = current_user.id
-    @playlist.movie_urls.each do |movie_url|
-      movie_url.user_id = current_user.id
-      movie_url.ytid = url_to_ytid(movie_url.url)
-      if movie_url.title == "" 
-        movie_url.title = get_title(movie_url.ytid)
-      end
-    end
+    #@playlist.movie_urls.each do |movie_url|
+      #movie_url.user_id = current_user.id
+      #movie_url.ytid = url_to_ytid(movie_url.url)
+      #if movie_url.title == "" 
+      #  movie_url.title = get_title(movie_url.ytid)
+      #end
+    #end
     #renderとridirectを分ける
     if @playlist.save
       flash[:success] = "プレイリストを作成しました"
