@@ -5,8 +5,10 @@ class RoomChannel < ApplicationCable::Channel
     @user = User.find(params[:user_id])
     stream_for @room
     #同じユーザーがかぶって居たらcreateしない
-    @room.room_members.create! user_id: @user.id
-    RoomChannel.broadcast_to @room, memberNum: @room.room_members.count
+    if @room != nil
+      @room.room_members.create! user_id: @user.id
+      RoomChannel.broadcast_to @room, memberNum: @room.room_members.count
+    
   end
 
   def unsubscribed

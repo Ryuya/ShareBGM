@@ -922,3 +922,36 @@ RoomChannel#sync({"time"=>0, "id"=>"CBSyOdVOJ2k", "room_id"=>1})
   ↳ app/channels/room_channel.rb:23
 [ActionCable] Broadcasting to room:Z2lkOi8vc2hhcmViZ20vUm9vbS8x: {:time=>0, :id=>"CBSyOdVOJ2k"}
 RoomChannel transmitting {"time"=>0, "id"=>"CBSyOdVOJ2k"} (via streamed from room:Z2lkOi8vc2hhcmViZ20vUm9vbS8x)
+Started GET "/" for 153.136.54.29 at 2019-01-22 12:51:28 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/index.html.erb:12
+  Rendered rooms/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 66ms (Views: 61.6ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 12:51:28 +0000
+  [1m[36mRoomMember Load (0.5ms)[0m  [1m[34mSELECT  "room_members".* FROM "room_members" WHERE "room_members"."room_id" = ? AND "room_members"."user_id" = ? LIMIT ?[0m  [["room_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:14
+  [1m[36mRoomMember Destroy (0.4ms)[0m  [1m[31mDELETE FROM "room_members" WHERE "room_members"."id" = ?[0m  [["id", 1]]
+  ↳ app/channels/room_channel.rb:14
+  [1m[35m (13.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:14
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "room_members" WHERE "room_members"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/channels/room_channel.rb:16
+[ActionCable] Broadcasting to room:Z2lkOi8vc2hhcmViZ20vUm9vbS8x: {:memberNum=>0}
+RoomChannel stopped streaming from room:Z2lkOi8vc2hhcmViZ20vUm9vbS8x
+RoomChannel transmitting {"memberNum"=>0} (via streamed from room:Z2lkOi8vc2hhcmViZ20vUm9vbS8x)
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 12:51:30 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 12:51:30 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
