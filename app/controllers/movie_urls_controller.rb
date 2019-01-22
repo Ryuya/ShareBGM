@@ -46,7 +46,6 @@ class MovieUrlsController < ApplicationController
         opt :q, id, :type => String, :default => id
         opt :b, "test", :type => String, :default =>"test"
         opt :p, "test", :type => String, :default =>"test"
-        opt :e, "test", :type => String, :default =>"test"
         opt :max_results, 'Max results', :type => :int, :default => 1
       end
   
@@ -83,8 +82,8 @@ class MovieUrlsController < ApplicationController
         puts "Videos:\n", videos, "\n"
         puts "Channels:\n", channels, "\n"
         puts "Playlists:\n", playlists, "\n"
-      rescue Google::APIClient::TransmissionError => t
-        puts t.result.body
+      rescue Google::APIClient::TransmissionError => p
+        puts p.result.body
       end
       return videos
     end
