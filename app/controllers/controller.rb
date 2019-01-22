@@ -20,7 +20,7 @@ def main
     )
   puts search_response
 
-  rescue Google::APIClient::TransmissionError => e
-    puts e.result.body
+  rescue Google::APIClient::TransmissionError => p
+    puts p.result.body
   end
 end
