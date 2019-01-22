@@ -84,7 +84,7 @@ class MovieUrlsController < ApplicationController
         puts "Playlists:\n", playlists, "\n"
       #rescue Google::APIClient::TransmissionError => e
       #  puts e.result.body
-      #end
+      end
       return videos
     end
     
