@@ -955,3 +955,153 @@ Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrad
 Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
 RoomChannel#join
 [ActionCable] Broadcasting to room:: {:subscribed=>true}
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:26:14 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:26:14 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:61: syntax error, unexpected keyword_end, expecting end-of-input]: /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:468:in `block in load_file' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:653:in `new_constants_in' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:467:in `load_file'
+Started GET "/" for 153.136.54.29 at 2019-01-22 13:26:14 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/index.html.erb:12
+  Rendered rooms/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 401ms (Views: 370.6ms | ActiveRecord: 2.4ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:26:15 +0000
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:26:16 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:26:16 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:61: syntax error, unexpected keyword_end, expecting end-of-input]: /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:468:in `block in load_file' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:653:in `new_constants_in' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:467:in `load_file'
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"action\":\"join\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"RoomChannel"}]: /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:78:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:55:in `perform_action' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:19:in `execute_command' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:87:in `dispatch_websocket_message' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+Started GET "/playlists/new" for 153.136.54.29 at 2019-01-22 13:26:18 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:7
+  Rendering playlists/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.6ms)
+  Rendered playlists/_form.html.erb (9.2ms)
+  Rendered playlists/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 108ms (Views: 73.3ms | ActiveRecord: 1.6ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:26:18 +0000
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:26:19 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:26:19 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:61: syntax error, unexpected keyword_end, expecting end-of-input]: /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:468:in `block in load_file' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:653:in `new_constants_in' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:467:in `load_file'
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"action\":\"join\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"RoomChannel"}]: /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:78:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:55:in `perform_action' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:19:in `execute_command' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:87:in `dispatch_websocket_message' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+Started POST "/playlists" for 153.136.54.29 at 2019-01-22 13:26:31 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q8MX71xKhAHxYeMHaSGdbXBcXTqt++9OO+NVafCvhYf1OlLwB+mDy0smDfR+vOts2eykbWh0UWQYoEEHiIz2qA==", "playlist"=>{"name"=>"aa", "description"=>"aaa", "movie_urls_attributes"=>{"0"=>{"url"=>"https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg", "title"=>"aaa", "description"=>"aaa"}, "1"=>{"url"=>"", "title"=>"", "description"=>""}, "2"=>{"url"=>"", "title"=>"", "description"=>""}}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mPlaylist Create (0.4ms)[0m  [1m[32mINSERT INTO "playlists" ("name", "user_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aa"], ["user_id", 1], ["description", "aaa"], ["created_at", "2019-01-22 13:26:32.008305"], ["updated_at", "2019-01-22 13:26:32.008305"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mMovieUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "movie_urls" ("url", "playlist_id", "title", "description", "user_id", "created_at", "updated_at", "ytid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["url", "https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg"], ["playlist_id", 2], ["title", "[\"ジャスティファイドジェノサイド　うたった【SymaG】\"]"], ["description", "aaa"], ["user_id", 1], ["created_at", "2019-01-22 13:26:32.837600"], ["updated_at", "2019-01-22 13:26:32.837600"], ["ytid", "4D_DR-q0xEg"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlists_controller.rb:26
+[ActiveJob] Enqueued MovieUrlBroadcastJob (Job ID: 52f199ca-81cd-4272-bbbb-a32fc88de4db) to Async(default) with arguments: #<GlobalID:0x007f707cbb4f60 @uri=#<URI::GID gid://sharebgm/MovieUrl/4>>
+  [1m[36mMovieUrl Load (0.2ms)[0m  [1m[34mSELECT  "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to https://sharebgm-higashi-c9-16.c9users.io/playlists
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 302 Found in 874ms (ActiveRecord: 14.7ms)
+
+
+[ActiveJob] [MovieUrlBroadcastJob] [52f199ca-81cd-4272-bbbb-a32fc88de4db] Performing MovieUrlBroadcastJob (Job ID: 52f199ca-81cd-4272-bbbb-a32fc88de4db) from Async(default) with arguments: #<GlobalID:0x007f702c03f7e8 @uri=#<URI::GID gid://sharebgm/MovieUrl/4>>
+[ActiveJob] [MovieUrlBroadcastJob] [52f199ca-81cd-4272-bbbb-a32fc88de4db] Error performing MovieUrlBroadcastJob (Job ID: 52f199ca-81cd-4272-bbbb-a32fc88de4db) from Async(default) in 4.11ms: SyntaxError (/home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:61: syntax error, unexpected keyword_end, expecting end-of-input):
+/usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load'
+/usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:468:in `block in load_file'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:653:in `new_constants_in'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:467:in `load_file'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:365:in `block in require_or_load'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:37:in `block in load_interlock'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies/interlock.rb:14:in `block in loading'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/concurrency/share_lock.rb:151:in `exclusive'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies/interlock.rb:13:in `loading'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:37:in `load_interlock'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:502:in `load_missing_constant'
+/usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:43:in `load_missing_constant'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:193:in `const_missing'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:534:in `load_missing_constant'
+/usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:43:in `load_missing_constant'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:193:in `const_missing'
+/home/ubuntu/workspace/sharebgm/app/jobs/movie_url_broadcast_job.rb:8:in `perform'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/execution.rb:39:in `block in perform_now'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/i18n-1.0.1/lib/i18n.rb:284:in `with_locale'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/notifications.rb:168:in `block in instrument'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/notifications.rb:168:in `instrument'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/logging.rb:46:in `block in tag_logger'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/logging.rb:46:in `tag_logger'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/execution.rb:35:in `perform_now'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/execution.rb:24:in `block in execute'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/reloader.rb:73:in `block in wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/reloader.rb:72:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/execution.rb:22:in `execute'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activejob-5.2.0/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/playlists" for 153.136.54.29 at 2019-01-22 13:26:33 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:3
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/playlists/index.html.erb:7
+  Rendered playlists/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 80ms (Views: 75.5ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:26:33 +0000
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:26:35 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:26:35 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:61: syntax error, unexpected keyword_end, expecting end-of-input]: /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:468:in `block in load_file' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:653:in `new_constants_in' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:467:in `load_file'
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"action\":\"join\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"RoomChannel"}]: /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:78:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:55:in `perform_action' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:19:in `execute_command' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:87:in `dispatch_websocket_message' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'

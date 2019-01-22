@@ -3,10 +3,11 @@ class RoomChannel < ApplicationCable::Channel
     #stream_from "room_channel"
     @room = Room.find(params[:id])
     @user = User.find(params[:user_id])
+    p "テス"
     if @room == nil
       return
     end
-    
+    p "ト"
     stream_for @room
     #同じユーザーがかぶって居たらcreateしない
     
