@@ -3156,3 +3156,362 @@ Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrad
 Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
 RoomChannel#join
 [ActionCable] Broadcasting to room:: {:subscribed=>true}
+Started GET "/playlists/3" for 153.136.54.29 at 2019-01-22 15:45:17 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:36
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mMovieUrl Load (0.2ms)[0m  [1m[34mSELECT "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."playlist_id" = ?[0m  [["playlist_id", 3]]
+  ↳ app/views/playlists/show.html.erb:3
+  Rendered playlists/show.html.erb within layouts/application (92.5ms)
+Completed 200 OK in 172ms (Views: 78.0ms | ActiveRecord: 78.4ms)
+
+
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 15:45:19 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:45:19 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
+Started GET "/" for 153.136.54.29 at 2019-01-22 15:45:20 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/index.html.erb:12
+  Rendered rooms/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 78ms (Views: 57.4ms | ActiveRecord: 1.5ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:45:21 +0000
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:17:in `unsubscribed'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 15:45:22 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:45:22 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+Started GET "/playlists/new" for 153.136.54.29 at 2019-01-22 15:45:22 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:7
+  Rendering playlists/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered playlists/_form.html.erb (5.6ms)
+  Rendered playlists/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 74ms (Views: 65.0ms | ActiveRecord: 0.4ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:45:22 +0000
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:17:in `unsubscribed'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 15:45:23 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:45:23 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
+Started POST "/playlists" for 153.136.54.29 at 2019-01-22 15:45:29 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+NfD1p5Io/DQisWecbPhpzyi6Qfhq1PT3PC3e6I50z62h3rKB/dMFWht8nl2lZtNecJ8o4x5sXsaFlgleOJjSw==", "playlist"=>{"name"=>"aa", "description"=>"aa", "movie_urls_attributes"=>{"0"=>{"url"=>"https://www.youtube.com/watch?v=g91jthwTpjk&start_radio=1&list=RDg91jthwTpjk", "title"=>"", "description"=>""}, "1"=>{"url"=>"", "title"=>"", "description"=>""}, "2"=>{"url"=>"", "title"=>"", "description"=>""}}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:17
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `create' for #<Playlist:0x007f5e485b88c8>
+Did you mean?  created_at):
+  
+app/controllers/playlists_controller.rb:26:in `create'
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:45:29 +0000
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:17:in `unsubscribed'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started POST "/playlists" for 153.136.54.29 at 2019-01-22 15:46:16 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+NfD1p5Io/DQisWecbPhpzyi6Qfhq1PT3PC3e6I50z62h3rKB/dMFWht8nl2lZtNecJ8o4x5sXsaFlgleOJjSw==", "playlist"=>{"name"=>"aa", "description"=>"aa", "movie_urls_attributes"=>{"0"=>{"url"=>"https://www.youtube.com/watch?v=g91jthwTpjk&start_radio=1&list=RDg91jthwTpjk", "title"=>"", "description"=>""}, "1"=>{"url"=>"", "title"=>"", "description"=>""}, "2"=>{"url"=>"", "title"=>"", "description"=>""}}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mPlaylist Create (0.4ms)[0m  [1m[32mINSERT INTO "playlists" ("name", "user_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aa"], ["user_id", 1], ["description", "aa"], ["created_at", "2019-01-22 15:46:16.388383"], ["updated_at", "2019-01-22 15:46:16.388383"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mMovieUrl Create (0.5ms)[0m  [1m[32mINSERT INTO "movie_urls" ("url", "playlist_id", "title", "description", "user_id", "created_at", "updated_at", "ytid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["url", "https://www.youtube.com/watch?v=g91jthwTpjk&start_radio=1&list=RDg91jthwTpjk"], ["playlist_id", 4], ["title", "[\"K/DA - POP/STARS (ft Madison Beer, (G)I-DLE, Jaira Burns) | Official Music Video - League of Legends\"]"], ["description", ""], ["user_id", 1], ["created_at", "2019-01-22 15:46:16.843727"], ["updated_at", "2019-01-22 15:46:16.843727"], ["ytid", "g91jthwTpjk"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlists_controller.rb:26
+[ActiveJob] Enqueued MovieUrlBroadcastJob (Job ID: 04e30cda-be5a-4123-a1de-cff6a0d5b201) to Async(default) with arguments: #<GlobalID:0x007f5e2a293cd8 @uri=#<URI::GID gid://sharebgm/MovieUrl/4>>
+Redirected to https://sharebgm-higashi-c9-16.c9users.io/playlists
+Completed 302 Found in 544ms (ActiveRecord: 17.7ms)
+
+
+  [1m[36mMovieUrl Load (0.3ms)[0m  [1m[34mSELECT  "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MovieUrlBroadcastJob] [04e30cda-be5a-4123-a1de-cff6a0d5b201] Performing MovieUrlBroadcastJob (Job ID: 04e30cda-be5a-4123-a1de-cff6a0d5b201) from Async(default) with arguments: #<GlobalID:0x007f5e28c36bc0 @uri=#<URI::GID gid://sharebgm/MovieUrl/4>>
+[ActiveJob] [MovieUrlBroadcastJob] [04e30cda-be5a-4123-a1de-cff6a0d5b201]   [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [04e30cda-be5a-4123-a1de-cff6a0d5b201]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [04e30cda-be5a-4123-a1de-cff6a0d5b201]   [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 4], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [04e30cda-be5a-4123-a1de-cff6a0d5b201]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [04e30cda-be5a-4123-a1de-cff6a0d5b201]   Rendered movie_urls/_movie_url.html.erb (0.8ms)
+[ActiveJob] [MovieUrlBroadcastJob] [04e30cda-be5a-4123-a1de-cff6a0d5b201] [ActionCable] Broadcasting to room:: {:movie_url=>"<li class=\"item\" data-movie_id=\"g91jthwTpjk\">\n  <div class=\"multiline-text\">[&quot;K/DA - POP/STARS (ft Madison Beer, (G)I-DLE, Jaira Burns) | Official Music Video - League of Legends&quot;]\n  </div>\n  <img src=\"https://i.ytimg.com/vi/g91jthwTpjk/default.jpg\" />\n</li>"}
+[ActiveJob] [MovieUrlBroadcastJob] [04e30cda-be5a-4123-a1de-cff6a0d5b201] Performed MovieUrlBroadcastJob (Job ID: 04e30cda-be5a-4123-a1de-cff6a0d5b201) from Async(default) in 39.27ms
+Started GET "/playlists" for 153.136.54.29 at 2019-01-22 15:46:16 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:3
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/playlists/index.html.erb:7
+  Rendered playlists/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 100ms (Views: 60.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 15:46:17 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:46:17 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
+Started GET "/playlists/4" for 153.136.54.29 at 2019-01-22 15:46:22 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:36
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mMovieUrl Load (0.3ms)[0m  [1m[34mSELECT "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."playlist_id" = ?[0m  [["playlist_id", 4]]
+  ↳ app/views/playlists/show.html.erb:3
+  Rendered playlists/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 95ms (Views: 92.5ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:46:22 +0000
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:17:in `unsubscribed'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 15:46:23 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:46:23 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:46:33 +0000
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:17:in `unsubscribed'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 15:46:34 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 15:46:34 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
