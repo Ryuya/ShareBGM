@@ -1236,3 +1236,343 @@ Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:31:14 +0000
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:62: syntax error, unexpected keyword_end, expecting end-of-input]: /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:100:in `load' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:468:in `block in load_file' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:653:in `new_constants_in' | /usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:467:in `load_file'
 Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"action\":\"join\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"RoomChannel"}]: /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:78:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:55:in `perform_action' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:19:in `execute_command' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:87:in `dispatch_websocket_message' | /usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:38:11 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:38:11 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:38:12 +0000
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:38:12 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:38:12 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+Started GET "/playlists/new" for 153.136.54.29 at 2019-01-22 13:38:13 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:7
+  Rendering playlists/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.5ms)
+  Rendered playlists/_form.html.erb (20.6ms)
+  Rendered playlists/new.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 369ms (Views: 285.6ms | ActiveRecord: 4.9ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:38:14 +0000
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:21:in `unsubscribed'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:38:15 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:38:15 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
+Started POST "/playlists" for 153.136.54.29 at 2019-01-22 13:38:47 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Yo4Ra/Lo/G+ZN/OzujrI6dKyzV5Pm25VjQ92cKDi2RQ8d1R0qUv7pSNwHUCtp77oewI0CYoU0H+uTGIe2MGqOw==", "playlist"=>{"name"=>"aaa", "description"=>"aaa", "movie_urls_attributes"=>{"0"=>{"url"=>"https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg", "title"=>"aaa", "description"=>"aaa"}, "1"=>{"url"=>"https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg", "title"=>"aaa", "description"=>"aa"}, "2"=>{"url"=>"https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg", "title"=>"aaa", "description"=>"aaa"}}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mPlaylist Create (1.4ms)[0m  [1m[32mINSERT INTO "playlists" ("name", "user_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aaa"], ["user_id", 1], ["description", "aaa"], ["created_at", "2019-01-22 13:38:47.138946"], ["updated_at", "2019-01-22 13:38:47.138946"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mMovieUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "movie_urls" ("url", "playlist_id", "title", "description", "user_id", "created_at", "updated_at", "ytid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["url", "https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg"], ["playlist_id", 4], ["title", "[\"ジャスティファイドジェノサイド　うたった【SymaG】\"]"], ["description", "aaa"], ["user_id", 1], ["created_at", "2019-01-22 13:38:48.021254"], ["updated_at", "2019-01-22 13:38:48.021254"], ["ytid", "4D_DR-q0xEg"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mMovieUrl Create (0.3ms)[0m  [1m[32mINSERT INTO "movie_urls" ("url", "playlist_id", "title", "description", "user_id", "created_at", "updated_at", "ytid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["url", "https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg"], ["playlist_id", 4], ["title", "[\"ジャスティファイドジェノサイド　うたった【SymaG】\"]"], ["description", "aa"], ["user_id", 1], ["created_at", "2019-01-22 13:38:48.318969"], ["updated_at", "2019-01-22 13:38:48.318969"], ["ytid", "4D_DR-q0xEg"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mMovieUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "movie_urls" ("url", "playlist_id", "title", "description", "user_id", "created_at", "updated_at", "ytid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["url", "https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg"], ["playlist_id", 4], ["title", "[\"ジャスティファイドジェノサイド　うたった【SymaG】\"]"], ["description", "aaa"], ["user_id", 1], ["created_at", "2019-01-22 13:38:48.814356"], ["updated_at", "2019-01-22 13:38:48.814356"], ["ytid", "4D_DR-q0xEg"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[35m (15.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlists_controller.rb:26
+[ActiveJob] Enqueued MovieUrlBroadcastJob (Job ID: 029ba8e6-0d32-4651-b880-2349a9191798) to Async(default) with arguments: #<GlobalID:0x007f53fd5b8c60 @uri=#<URI::GID gid://sharebgm/MovieUrl/6>>
+[ActiveJob] Enqueued MovieUrlBroadcastJob (Job ID: 568d3f9b-32c2-498f-bf1f-a14e650ccd51) to Async(default) with arguments: #<GlobalID:0x007f53fd5b24c8 @uri=#<URI::GID gid://sharebgm/MovieUrl/7>>
+[ActiveJob] Enqueued MovieUrlBroadcastJob (Job ID: ff95db03-14e4-486a-bdc9-358dc4308b41) to Async(default) with arguments: #<GlobalID:0x007f53fd5b02b8 @uri=#<URI::GID gid://sharebgm/MovieUrl/8>>
+Redirected to https://sharebgm-higashi-c9-16.c9users.io/playlists
+  [1m[36mMovieUrl Load (0.3ms)[0m  [1m[34mSELECT  "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MovieUrlBroadcastJob] [ff95db03-14e4-486a-bdc9-358dc4308b41] Performing MovieUrlBroadcastJob (Job ID: ff95db03-14e4-486a-bdc9-358dc4308b41) from Async(default) with arguments: #<GlobalID:0x007f53fd55d888 @uri=#<URI::GID gid://sharebgm/MovieUrl/8>>
+Completed 302 Found in 1727ms (ActiveRecord: 18.3ms)
+
+
+  [1m[36mMovieUrl Load (0.2ms)[0m  [1m[34mSELECT  "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMovieUrl Load (0.1ms)[0m  [1m[34mSELECT  "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [ff95db03-14e4-486a-bdc9-358dc4308b41]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MovieUrlBroadcastJob] [ff95db03-14e4-486a-bdc9-358dc4308b41]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [029ba8e6-0d32-4651-b880-2349a9191798] Performing MovieUrlBroadcastJob (Job ID: 029ba8e6-0d32-4651-b880-2349a9191798) from Async(default) with arguments: #<GlobalID:0x007f53fd5110f0 @uri=#<URI::GID gid://sharebgm/MovieUrl/6>>
+[ActiveJob] [MovieUrlBroadcastJob] [568d3f9b-32c2-498f-bf1f-a14e650ccd51] Performing MovieUrlBroadcastJob (Job ID: 568d3f9b-32c2-498f-bf1f-a14e650ccd51) from Async(default) with arguments: #<GlobalID:0x007f53fd50ac50 @uri=#<URI::GID gid://sharebgm/MovieUrl/7>>
+[ActiveJob] [MovieUrlBroadcastJob] [ff95db03-14e4-486a-bdc9-358dc4308b41]   [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 4], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [ff95db03-14e4-486a-bdc9-358dc4308b41]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [568d3f9b-32c2-498f-bf1f-a14e650ccd51]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [029ba8e6-0d32-4651-b880-2349a9191798]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [568d3f9b-32c2-498f-bf1f-a14e650ccd51]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [ff95db03-14e4-486a-bdc9-358dc4308b41]   Rendered movie_urls/_movie_url.html.erb (1.0ms)
+[ActiveJob] [MovieUrlBroadcastJob] [029ba8e6-0d32-4651-b880-2349a9191798]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [568d3f9b-32c2-498f-bf1f-a14e650ccd51]   [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 4], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [ff95db03-14e4-486a-bdc9-358dc4308b41] [ActionCable] Broadcasting to room:: {:movie_url=>"<li class=\"item\" data-movie_id=\"4D_DR-q0xEg\">\n  <div class=\"multiline-text\">[&quot;ジャスティファイドジェノサイド　うたった【SymaG】&quot;]\n  </div>\n  <img src=\"https://i.ytimg.com/vi/4D_DR-q0xEg/default.jpg\" />\n</li>"}
+[ActiveJob] [MovieUrlBroadcastJob] [029ba8e6-0d32-4651-b880-2349a9191798]   [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 4], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [568d3f9b-32c2-498f-bf1f-a14e650ccd51]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [ff95db03-14e4-486a-bdc9-358dc4308b41] Performed MovieUrlBroadcastJob (Job ID: ff95db03-14e4-486a-bdc9-358dc4308b41) from Async(default) in 125.06ms
+[ActiveJob] [MovieUrlBroadcastJob] [029ba8e6-0d32-4651-b880-2349a9191798]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [568d3f9b-32c2-498f-bf1f-a14e650ccd51]   Rendered movie_urls/_movie_url.html.erb (0.2ms)
+[ActiveJob] [MovieUrlBroadcastJob] [029ba8e6-0d32-4651-b880-2349a9191798]   Rendered movie_urls/_movie_url.html.erb (0.2ms)
+[ActiveJob] [MovieUrlBroadcastJob] [568d3f9b-32c2-498f-bf1f-a14e650ccd51] [ActionCable] Broadcasting to room:: {:movie_url=>"<li class=\"item\" data-movie_id=\"4D_DR-q0xEg\">\n  <div class=\"multiline-text\">[&quot;ジャスティファイドジェノサイド　うたった【SymaG】&quot;]\n  </div>\n  <img src=\"https://i.ytimg.com/vi/4D_DR-q0xEg/default.jpg\" />\n</li>"}
+[ActiveJob] [MovieUrlBroadcastJob] [029ba8e6-0d32-4651-b880-2349a9191798] [ActionCable] Broadcasting to room:: {:movie_url=>"<li class=\"item\" data-movie_id=\"4D_DR-q0xEg\">\n  <div class=\"multiline-text\">[&quot;ジャスティファイドジェノサイド　うたった【SymaG】&quot;]\n  </div>\n  <img src=\"https://i.ytimg.com/vi/4D_DR-q0xEg/default.jpg\" />\n</li>"}
+[ActiveJob] [MovieUrlBroadcastJob] [568d3f9b-32c2-498f-bf1f-a14e650ccd51] Performed MovieUrlBroadcastJob (Job ID: 568d3f9b-32c2-498f-bf1f-a14e650ccd51) from Async(default) in 37.61ms
+[ActiveJob] [MovieUrlBroadcastJob] [029ba8e6-0d32-4651-b880-2349a9191798] Performed MovieUrlBroadcastJob (Job ID: 029ba8e6-0d32-4651-b880-2349a9191798) from Async(default) in 38.91ms
+Started GET "/playlists" for 153.136.54.29 at 2019-01-22 13:38:49 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:3
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/playlists/index.html.erb:7
+  Rendered playlists/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 58ms (Views: 54.9ms | ActiveRecord: 0.6ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:38:49 +0000
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:21:in `unsubscribed'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:38:50 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:38:50 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
+Started GET "/playlists/new" for 153.136.54.29 at 2019-01-22 13:40:11 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:7
+  Rendering playlists/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered playlists/_form.html.erb (5.8ms)
+  Rendered playlists/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 143ms (Views: 92.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:40:13 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:40:13 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
+Started POST "/playlists" for 153.136.54.29 at 2019-01-22 13:40:49 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UaYUG4DPvNR0QKLA3YoOmFQMzcbuL33TBd98sIVtBaIPX1EE22y7Hs4HTDPKF3iZ/bw0kSugw/kmnGje/U52jQ==", "playlist"=>{"name"=>"aaa", "description"=>"aaaa", "movie_urls_attributes"=>{"0"=>{"url"=>"https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg", "title"=>"aaa", "description"=>"aaa"}, "1"=>{"url"=>"https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg", "title"=>"aaa", "description"=>"aa"}, "2"=>{"url"=>"https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg", "title"=>"aaa", "description"=>"aa"}}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mPlaylist Create (0.5ms)[0m  [1m[32mINSERT INTO "playlists" ("name", "user_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aaa"], ["user_id", 1], ["description", "aaaa"], ["created_at", "2019-01-22 13:40:49.220833"], ["updated_at", "2019-01-22 13:40:49.220833"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mMovieUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "movie_urls" ("url", "playlist_id", "title", "description", "user_id", "created_at", "updated_at", "ytid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["url", "https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg"], ["playlist_id", 5], ["title", "[\"ジャスティファイドジェノサイド　うたった【SymaG】\"]"], ["description", "aaa"], ["user_id", 1], ["created_at", "2019-01-22 13:40:49.594035"], ["updated_at", "2019-01-22 13:40:49.594035"], ["ytid", "4D_DR-q0xEg"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mMovieUrl Create (0.2ms)[0m  [1m[32mINSERT INTO "movie_urls" ("url", "playlist_id", "title", "description", "user_id", "created_at", "updated_at", "ytid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["url", "https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg"], ["playlist_id", 5], ["title", "[\"ジャスティファイドジェノサイド　うたった【SymaG】\"]"], ["description", "aa"], ["user_id", 1], ["created_at", "2019-01-22 13:40:49.792026"], ["updated_at", "2019-01-22 13:40:49.792026"], ["ytid", "4D_DR-q0xEg"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[36mMovieUrl Create (0.4ms)[0m  [1m[32mINSERT INTO "movie_urls" ("url", "playlist_id", "title", "description", "user_id", "created_at", "updated_at", "ytid") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["url", "https://www.youtube.com/watch?v=4D_DR-q0xEg&start_radio=1&list=RD4D_DR-q0xEg"], ["playlist_id", 5], ["title", "[\"ジャスティファイドジェノサイド　うたった【SymaG】\"]"], ["description", "aa"], ["user_id", 1], ["created_at", "2019-01-22 13:40:50.089610"], ["updated_at", "2019-01-22 13:40:50.089610"], ["ytid", "4D_DR-q0xEg"]]
+  ↳ app/controllers/playlists_controller.rb:26
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlists_controller.rb:26
+[ActiveJob] Enqueued MovieUrlBroadcastJob (Job ID: 5dbfc245-b3eb-44f8-99e6-26dc75d99e2b) to Async(default) with arguments: #<GlobalID:0x007f53fdc6df10 @uri=#<URI::GID gid://sharebgm/MovieUrl/9>>
+[ActiveJob] Enqueued MovieUrlBroadcastJob (Job ID: 6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e) to Async(default) with arguments: #<GlobalID:0x007f53fdc67e30 @uri=#<URI::GID gid://sharebgm/MovieUrl/10>>
+  [1m[36mMovieUrl Load (0.2ms)[0m  [1m[34mSELECT  "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mMovieUrl Load (0.2ms)[0m  [1m[34mSELECT  "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+[ActiveJob] Enqueued MovieUrlBroadcastJob (Job ID: 94966f94-f204-4e39-8024-c25ec8bf8680) to Async(default) with arguments: #<GlobalID:0x007f53fdb6c710 @uri=#<URI::GID gid://sharebgm/MovieUrl/11>>
+  [1m[36mMovieUrl Load (0.2ms)[0m  [1m[34mSELECT  "movie_urls".* FROM "movie_urls" WHERE "movie_urls"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Redirected to https://sharebgm-higashi-c9-16.c9users.io/playlists
+  ↳ /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MovieUrlBroadcastJob] [6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e] Performing MovieUrlBroadcastJob (Job ID: 6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e) from Async(default) with arguments: #<GlobalID:0x007f53fdad0ce8 @uri=#<URI::GID gid://sharebgm/MovieUrl/10>>
+[ActiveJob] [MovieUrlBroadcastJob] [5dbfc245-b3eb-44f8-99e6-26dc75d99e2b] Performing MovieUrlBroadcastJob (Job ID: 5dbfc245-b3eb-44f8-99e6-26dc75d99e2b) from Async(default) with arguments: #<GlobalID:0x007f53fdac68b0 @uri=#<URI::GID gid://sharebgm/MovieUrl/9>>
+Completed 302 Found in 929ms (ActiveRecord: 15.6ms)
+
+
+[ActiveJob] [MovieUrlBroadcastJob] [94966f94-f204-4e39-8024-c25ec8bf8680] Performing MovieUrlBroadcastJob (Job ID: 94966f94-f204-4e39-8024-c25ec8bf8680) from Async(default) with arguments: #<GlobalID:0x007f53fdabf600 @uri=#<URI::GID gid://sharebgm/MovieUrl/11>>
+[ActiveJob] [MovieUrlBroadcastJob] [6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [5dbfc245-b3eb-44f8-99e6-26dc75d99e2b]   [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [94966f94-f204-4e39-8024-c25ec8bf8680]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [5dbfc245-b3eb-44f8-99e6-26dc75d99e2b]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [94966f94-f204-4e39-8024-c25ec8bf8680]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e]   [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 5], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [5dbfc245-b3eb-44f8-99e6-26dc75d99e2b]   [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 5], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [94966f94-f204-4e39-8024-c25ec8bf8680]   [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 5], ["LIMIT", 1]]
+[ActiveJob] [MovieUrlBroadcastJob] [6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [5dbfc245-b3eb-44f8-99e6-26dc75d99e2b]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [94966f94-f204-4e39-8024-c25ec8bf8680]   ↳ app/jobs/movie_url_broadcast_job.rb:8
+[ActiveJob] [MovieUrlBroadcastJob] [6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e]   Rendered movie_urls/_movie_url.html.erb (0.8ms)
+[ActiveJob] [MovieUrlBroadcastJob] [5dbfc245-b3eb-44f8-99e6-26dc75d99e2b]   Rendered movie_urls/_movie_url.html.erb (0.2ms)
+[ActiveJob] [MovieUrlBroadcastJob] [94966f94-f204-4e39-8024-c25ec8bf8680]   Rendered movie_urls/_movie_url.html.erb (0.2ms)
+[ActiveJob] [MovieUrlBroadcastJob] [6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e] [ActionCable] Broadcasting to room:: {:movie_url=>"<li class=\"item\" data-movie_id=\"4D_DR-q0xEg\">\n  <div class=\"multiline-text\">[&quot;ジャスティファイドジェノサイド　うたった【SymaG】&quot;]\n  </div>\n  <img src=\"https://i.ytimg.com/vi/4D_DR-q0xEg/default.jpg\" />\n</li>"}
+[ActiveJob] [MovieUrlBroadcastJob] [5dbfc245-b3eb-44f8-99e6-26dc75d99e2b] [ActionCable] Broadcasting to room:: {:movie_url=>"<li class=\"item\" data-movie_id=\"4D_DR-q0xEg\">\n  <div class=\"multiline-text\">[&quot;ジャスティファイドジェノサイド　うたった【SymaG】&quot;]\n  </div>\n  <img src=\"https://i.ytimg.com/vi/4D_DR-q0xEg/default.jpg\" />\n</li>"}
+[ActiveJob] [MovieUrlBroadcastJob] [94966f94-f204-4e39-8024-c25ec8bf8680] [ActionCable] Broadcasting to room:: {:movie_url=>"<li class=\"item\" data-movie_id=\"4D_DR-q0xEg\">\n  <div class=\"multiline-text\">[&quot;ジャスティファイドジェノサイド　うたった【SymaG】&quot;]\n  </div>\n  <img src=\"https://i.ytimg.com/vi/4D_DR-q0xEg/default.jpg\" />\n</li>"}
+[ActiveJob] [MovieUrlBroadcastJob] [6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e] Performed MovieUrlBroadcastJob (Job ID: 6c0e7f36-5e7b-4e8e-97f3-d8887cf38e4e) from Async(default) in 40.47ms
+[ActiveJob] [MovieUrlBroadcastJob] [5dbfc245-b3eb-44f8-99e6-26dc75d99e2b] Performed MovieUrlBroadcastJob (Job ID: 5dbfc245-b3eb-44f8-99e6-26dc75d99e2b) from Async(default) in 38.57ms
+[ActiveJob] [MovieUrlBroadcastJob] [94966f94-f204-4e39-8024-c25ec8bf8680] Performed MovieUrlBroadcastJob (Job ID: 94966f94-f204-4e39-8024-c25ec8bf8680) from Async(default) in 35.65ms
+Started GET "/playlists" for 153.136.54.29 at 2019-01-22 13:40:50 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlaylistsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:3
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/playlists/index.html.erb:7
+  Rendered playlists/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 68ms (Views: 64.4ms | ActiveRecord: 0.6ms)
+
+
+Finished "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:40:50 +0000
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:21:in `unsubscribed'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/usr/local/rvm/gems/ruby-2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/cable" for 153.136.54.29 at 2019-01-22 13:40:51 +0000
+Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-22 13:40:51 +0000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
