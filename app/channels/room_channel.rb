@@ -3,9 +3,13 @@ class RoomChannel < ApplicationCable::Channel
     #stream_from "room_channel"
     @room = Room.find(params[:id])
     @user = User.find(params[:user_id])
+    if @room == nil
+      return
+    end
+    
     stream_for @room
     #同じユーザーがかぶって居たらcreateしない
-    if @room != nil
+    
       @room.room_members.create! user_id: @user.id
       RoomChannel.broadcast_to @room, memberNum: @room.room_members.count
     end
