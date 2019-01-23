@@ -32,12 +32,12 @@ $(document).on('ready',function(){
 });
 
 var huga = 0;
-var hoge = setInterval(function() {
+var delaySetUp = setInterval(function() {
     console.log(huga);
     huga++;
     //終了条件
     if (huga == 1) {
-    clearInterval(hoge);
+    clearInterval(delaySetUp);
     App.room.join();
     console.log("終わり");
     }
@@ -46,7 +46,7 @@ var hoge = setInterval(function() {
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
   addClickEvent();
-  hoge();
+  delaySetUp();
 
   $('.syncbutton').on('click',function(){
     console.log("ブロードキャスト");

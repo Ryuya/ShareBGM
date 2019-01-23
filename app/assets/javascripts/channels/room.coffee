@@ -16,7 +16,7 @@ $ ->
       if data['movie_url'] != undefined
         $("#playlist").append data['movie_url']
         $.getScript("javascriptd/room_show.js")
-        $('#playlist li').last().addEventListener("click",addClicEvent(), false)
+        $('#playlist li').last().addEventListener("click",addClickEvent(), false)
         
          
       if data['time'] != undefined

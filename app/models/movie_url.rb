@@ -68,6 +68,9 @@ class MovieUrl < ApplicationRecord
       puts "Playlists:\n", playlists, "\n"
     rescue Google::APIClient::TransmissionError => e
       puts e.result.body
+      
+    ensure
+      self.title = videos
     end
     self.title = videos
   end
