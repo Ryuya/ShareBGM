@@ -4707,3 +4707,147 @@ Cannot render console from 153.136.54.29! Allowed networks: 127.0.0.1, ::1, 127.
 Started GET "/cable/" [WebSocket] for 153.136.54.29 at 2019-01-23 11:32:54 +0000
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /usr/local/rvm/gems/ruby-2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /home/ubuntu/workspace/sharebgm/app/channels/room_channel.rb:4:in `subscribed'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/cable" for 127.0.0.1 at 2020-02-09 15:52:10 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-02-09 15:52:11 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /Users/ryuya/Public/ShareBGM/app/channels/room_channel.rb:4:in `subscribed'
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-02-09 15:52:14 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zgl0JIn0qQyKz84XBQ92T2mUcChF7vqmVk/+WdsX1AFq3U39ROFDVbJOFdZXy6MO4oXlb+y1WQiR+VvZ6FC9YQ==", "user"=>{"email"=>"main.higashi.pg@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "main.higashi.pg@gmail.com"], ["LIMIT", 1]]
+  ↳ /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 17ms (ActiveRecord: 1.6ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zgl0JIn0qQyKz84XBQ92T2mUcChF7vqmVk/+WdsX1AFq3U39ROFDVbJOFdZXy6MO4oXlb+y1WQiR+VvZ6FC9YQ==", "user"=>{"email"=>"main.higashi.pg@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 4046ms (Views: 3823.5ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2020-02-09 15:52:18 +0900
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/Users/ryuya/Public/ShareBGM/app/channels/room_channel.rb:17:in `unsubscribed'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/cable" for 127.0.0.1 at 2020-02-09 15:52:18 +0900
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-02-09 15:52:18 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /Users/ryuya/Public/ShareBGM/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-02-09 15:52:41 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gHysYvMaDWU3PceAufXVS5QMBFhN9A+uLV4z27w/GFaMqJW7Pg/nPA+8HEHrMQAKHx2RH+SvrADq6JZbj3hxNg==", "user"=>{"email"=>"main.higashi.pg@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "main.higashi.pg@gmail.com"], ["LIMIT", 1]]
+  ↳ /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.4ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gHysYvMaDWU3PceAufXVS5QMBFhN9A+uLV4z27w/GFaMqJW7Pg/nPA+8HEHrMQAKHx2RH+SvrADq6JZbj3hxNg==", "user"=>{"email"=>"main.higashi.pg@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 314ms (Views: 162.0ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2020-02-09 15:52:42 +0900
+There was an exception - NoMethodError(undefined method `room_members' for nil:NilClass)
+/Users/ryuya/Public/ShareBGM/app/channels/room_channel.rb:17:in `unsubscribed'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:190:in `block in unsubscribe_from_channel'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:83:in `wrap'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/channel/base.rb:189:in `unsubscribe_from_channel'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/base.rb:184:in `handle_close'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:60:in `block in invoke'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:41:in `block in work'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/execution_wrapper.rb:87:in `wrap'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `instance_exec'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:136:in `run_callbacks'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:40:in `work'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:58:in `invoke'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actioncable-5.2.0/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:348:in `run_task'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:337:in `block (3 levels) in create_worker'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `loop'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:320:in `block (2 levels) in create_worker'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `catch'
+/Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/executor/ruby_thread_pool_executor.rb:319:in `block in create_worker'
+Started GET "/cable" for 127.0.0.1 at 2020-02-09 15:52:42 +0900
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-02-09 15:52:42 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [ActiveRecord::RecordNotFound - Couldn't find Room without an ID]: /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:431:in `find_with_ids' | /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/relation/finder_methods.rb:69:in `find' | /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/querying.rb:5:in `find' | /Users/ryuya/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.0/lib/active_record/core.rb:167:in `find' | /Users/ryuya/Public/ShareBGM/app/channels/room_channel.rb:4:in `subscribed'
+RoomChannel#join
+[ActionCable] Broadcasting to room:: {:subscribed=>true}
