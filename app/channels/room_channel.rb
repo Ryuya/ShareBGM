@@ -20,7 +20,7 @@ class RoomChannel < ApplicationCable::Channel
 
 
     RoomMember.where(user_id: @user.id).destroy_all
-    
+
     @room.room_members.create! user_id: @user.id
 
     RoomChannel.broadcast_to @room, memberNum: @room.room_members.count
