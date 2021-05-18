@@ -33,7 +33,7 @@ gem 'jquery-rails'
 gem 'google-api-client', '<0.9'
 gem 'trollop', '~> 2.1'
 gem 'gon'
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'nested_form_fields'
 
 # Use ActiveStorage variant
