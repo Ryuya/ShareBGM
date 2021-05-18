@@ -1,5 +1,5 @@
 $ -> 
-  App.room = App.cable.subscriptions.create {channel: "RoomChannel", id: $("#room").data('room_id'), user_id: $("#room").data("user_id")},
+  App.room = App.cable.subscriptions.create {channel: "RoomChannel", id: $("#room").data('room_id'), user_id: $("#room").data("user_id"), url: "http://localhost:3000/rooms/" },
     connected: (room_id,user_id) ->
       # Called when the subscription is ready for use on the server
       # App.room.join $("#room").data('room_id') , $("#room").data('user_id'), $("#memberNum").data('membernum')

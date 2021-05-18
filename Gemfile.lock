@@ -51,15 +51,16 @@ GEM
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
-    autoprefixer-rails (9.1.4)
-      execjs
+    autoprefixer-rails (10.2.5.0)
+      execjs (< 2.8.0)
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.0)
       msgpack (~> 1.0)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+    bootstrap (4.1.3)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.9, < 2)
+      sass (>= 3.5.2)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.3.0)
@@ -179,6 +180,7 @@ GEM
     orm_adapter (0.5.0)
     os (1.0.0)
     pg (0.20.0)
+    popper_js (1.16.0)
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
@@ -302,7 +304,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  bootstrap-sass
+  bootstrap (~> 4.1.1)
   byebug
   capybara (>= 2.15, < 4.0)
   chromedriver-helper
@@ -337,4 +339,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.16.2
+   2.1.4

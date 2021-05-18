@@ -6,16 +6,23 @@ class RoomChannel < ApplicationCable::Channel
     if @room != nil
       stream_for @room
       #同じユーザーがかぶって居たらcreateしない
-      
+      hash = RoomMember.group(:@user_id).having('count(*) >= 2').maximum(:created_at)
+      user_ids = RoomMember.where(user_id: hash.keys, created_at: hash.values).pluck(:@user_id)
+      RoomMember.where(user_id: @user.id).where.not(id: user_ids).destroy_all
       @room.room_members.create! user_id: @user.id
+
       RoomChannel.broadcast_to @room, memberNum: @room.room_members.count
     end
   end
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
-    @room.room_members.find_by(user_id: @user.id).destroy
-    #@room.room_members.delete_all
+
+
+    RoomMember.where(user_id: @user.id).destroy_all
+    
+    @room.room_members.create! user_id: @user.id
+
     RoomChannel.broadcast_to @room, memberNum: @room.room_members.count
     # if @room.present?
     #   p @room.name

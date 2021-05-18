@@ -14,5 +14,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require nested_form_fields

@@ -4,7 +4,13 @@
     <div id="chat" class="clearfix">
       <div class="memberNum" >
           <div class = "glyphicon glyphicon-eye-open" ></div>
-          <span id = "memberNum" data-memberNum="<%= @room.room_members.count %>"> <%= @room.room_members.count %> 人</span>
+          <span id = "memberNum" data-memberNum="<%=  %>"> <%= ActionCable.server
+                                                                              .open_connections_statistics
+                                                                              .map { |con| con[:subscriptions]
+              .map { |sub| JSON.parse(sub)[request.url] } } # ここのurlを変えれば特定の接続数を取得できるはず
+                                                                              .flatten
+                                                                              .select { |url| url == request.url } # ここで特定のチャネル一致
+                                                                              .size %> 人</span>
         </div>
       <div class="loges">
         <%= render @room_chat_logs %>
