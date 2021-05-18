@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d39f7f3-161d-4674-9e01-a65fec7c5d9c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/channels/room_channel.rb" afterPath="$PROJECT_DIR$/app/channels/room_channel.rb" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/tmp/pids/server.pid" afterPath="" />
-    </list>
+    <list default="true" id="1d39f7f3-161d-4674-9e01-a65fec7c5d9c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -399,12 +394,12 @@
       <option name="presentableId" value="Default" />
       <updated>1621346648451</updated>
       <workItem from="1621346650226" duration="207000" />
-      <workItem from="1621351597551" duration="5287000" />
+      <workItem from="1621351597551" duration="5421000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5494000" />
+    <option name="totallyTimeSpent" value="5628000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="30" width="1636" height="975" extended-state="0" />
